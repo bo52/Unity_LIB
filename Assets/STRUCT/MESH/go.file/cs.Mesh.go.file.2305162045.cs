@@ -25,13 +25,6 @@ namespace LIB.cs2305162045
             st2305072046.Class.fun230507204600_ПривязатьМешКОбъекту(m,go);
             Сохранить();
         }
-        static public Mesh Загрузить(string файл, GameObject go)
-        {
-            var m = st2305161616.Class.fun230516161602(файл);
-            //go.name = файл;
-            st2305072046.Class.fun230507204600_ПривязатьМешКОбъекту(m,go);
-            return m;
-        }
         /// <summary>
         /// СохранитьМешОбъекта
         /// </summary>

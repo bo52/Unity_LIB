@@ -56,9 +56,9 @@ namespace LIB.st2305161716
         /// <param name="M"></param>
         /// <param name="id"></param>
         /// <param name="path"></param>
-        static public void fun230516171604_СохранитьМешПоИмени(Mesh M, string id,string path="")
+        static public void fun230516171604_СохранитьМешПоИмени(Mesh M, string namefile, string path="")
         {
-            M.fun230516171600_СохранитьМеш(st2305181538.Class.fun230518153801_ПолучитьФайлМешаПоИмени(id, path));
+            M.fun230516171600_СохранитьМеш(st2305181538.Class.fun230518153801_ПолучитьФайлМешаПоИмени(namefile, path));
         }
         /// <summary>
         /// 
@@ -66,7 +66,7 @@ namespace LIB.st2305161716
         /// <param name="edit"></param>
         /// <param name="namefile"></param>
         /// <param name="path"></param>
-        static public void fun230516171605_СохранитьМешПоИмениОтРедактора(this cs2305141202.Class edit, string namefile, string path = "default/")
+        static public void fun230516171605_СохранитьМешПоИмениОтРедактора(this cs2306291123.Class edit, string namefile, string path = "default/")
         {
             var M = edit.ПолучитьМеш();
             st2305161716.Class.fun230516171604_СохранитьМешПоИмени(M, namefile, path);

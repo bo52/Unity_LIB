@@ -46,13 +46,26 @@ namespace LIB.st2305072046
         /// 
         /// </summary>
         /// <param name="edit"></param>
-        static public void fun230507204601_ПривязатьМешОтРедактора(this cs2305141202.Class edit)
+        static public Mesh fun230507204601_ПривязатьМешОтРедактора(this cs2306291123.Class edit)
         {
             var M = edit.ПолучитьМеш();
             if (edit.GO != null)
             {
-                st2305072046.Class.fun230507204600_ПривязатьМешКОбъекту(M, edit.GO);
+                fun230507204600_ПривязатьМешКОбъекту(M, edit.GO);
             }
+            return M;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="NameFile"></param>
+        /// <param name="go"></param>
+        /// <returns></returns>
+        static public Mesh fun230507204602_ПривязатьМешОтФайлаПоИмени(string NameFile, GameObject go, string path)
+        {
+            var m = st2306282324.Class.fun230628232401_ЗагрузитьМешПоИмени(NameFile, path);
+            fun230507204600_ПривязатьМешКОбъекту(m, go);
+            return m;
         }
         ///exit
     }

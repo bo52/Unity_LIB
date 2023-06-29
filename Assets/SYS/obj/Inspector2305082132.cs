@@ -20,7 +20,7 @@ namespace LIB.go2305082132
     /// <summary>
     /// 
     /// </summary>
-    public class Inspector : Object, IInspector
+    public class Inspector : object, IInspector
     {
         public Inspector() { }
         public Inspector(MonoBehaviour MB) => this.MB = MB;

@@ -31,7 +31,7 @@ namespace LIB.st2305221205
         /// УдалениеОбъектов
         /// </summary>
         /// <param name="p"></param>
-        static public void fun230522120502(this Transform p)
+        static public void fun230522120502_УдалениеДочернихОбъектов(this Transform p)
         {
             while (p.childCount != 0)
                 foreach (Transform child in p)

@@ -13,26 +13,11 @@ namespace LIB.st2305141614
     static public class Class
     {
         /// <summary>
-        /// Root
-        /// </summary>
-        static private GameObject field230514161400;
-        /// <summary>
-        /// ИгровойКорень
-        /// </summary>
-        static public GameObject prop230514161401
-        {
-            get
-            {
-                if (field230514161400 == null) field230514161400 = GameObject.Find("Directional Light");
-                return field230514161400;
-            }
-        }
-        /// <summary>
         /// СоздатьОбъектПоИмени
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        static public Object fun230514161402_СоздатьОбъектПоИмени(this string name)
+        static public object fun230514161402_СоздатьОбъектПоИмени(this string name)
         {
             System.Type TestType = System.Type.GetType(name, false, true);
             //если класс не найден
@@ -42,7 +27,7 @@ namespace LIB.st2305141614
 
             //вызываем конструтор
             var obj = ci.Invoke(new object[] { });
-            return obj as Object;
+            return obj;
         }
         /// <summary>
         /// СоздатьОбъектПоИмени
@@ -50,7 +35,7 @@ namespace LIB.st2305141614
         /// <param name="INS"></param>
         /// <param name="ev"></param>
         /// <returns></returns>
-        static public Object fun230514161403(go2305081120.IInspector INS, string ev)
+        static public object fun230514161403(go2305081120.IInspector INS, string ev)
         {
             var mb = INS.Моно as cs2305161108.IMono;
             var obj = fun230514161402_СоздатьОбъектПоИмени("LIB.go" + mb.НомерМира.ToString() + "." + ev);
@@ -78,7 +63,7 @@ namespace LIB.st2305141614
         static public cs2305161108.Mono fun230514161406(uint number, GameObject p = null)
         {
             var go = new GameObject();
-            go.transform.SetParent(p == null ? st2305141614.Class.prop230514161401.transform : p.transform);
+            go.transform.SetParent(p == null ? st2306251639.Class.prop230625163901_ОбъектКореньМира.transform : p.transform);
             var scr = go.AddComponent<cs2305161108.Mono>();
             return scr;
         }

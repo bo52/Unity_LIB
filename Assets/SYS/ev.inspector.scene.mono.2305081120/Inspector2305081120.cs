@@ -20,8 +20,8 @@ public interface IInspector : go2305082132.IInspector
 public class Inspector : go2305082132.Inspector, IInspector
 {
     public IScene СЦЕНА => объектСЦЕНА as IScene;
-    private Object Scene;
-    public Object объектСЦЕНА
+    private object Scene;
+    public object объектСЦЕНА
     {
         get
         {

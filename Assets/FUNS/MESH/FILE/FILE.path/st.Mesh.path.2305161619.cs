@@ -1,6 +1,7 @@
 //empty
 //empty
 //получить Меш
+using System.IO;
 using UnityEngine;
 namespace LIB.st2305161619
 {
@@ -13,6 +14,13 @@ namespace LIB.st2305161619
         /// PATH_mesh
         /// </summary>
         static public string field230516161900_РазделМешей => "Assets/Resources/MESHES/";
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="namefile"></param>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        static public bool fun230516161901_СуществуетМеш(string namefile, string path = "default/") => File.Exists(Application.dataPath + "/" + field230516161900_РазделМешей + path + namefile + ".asset");
         /// <summary>
         /// ПолучитьМеш
         /// </summary>
