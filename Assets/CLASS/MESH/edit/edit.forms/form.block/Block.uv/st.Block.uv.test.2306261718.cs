@@ -17,7 +17,7 @@ namespace LIB.st2306261718
         /// <summary>
         ///
         /// </summary>
-        static public Vector2[] fun230626171800_ВерсткаБлока(this cs2305141215.IClass Редактор)
+        static public Vector2[] fun230626171800_ВерсткаБлока(this cs2306291643.IClass Редактор)
         {
             return new Vector2[8]
             {

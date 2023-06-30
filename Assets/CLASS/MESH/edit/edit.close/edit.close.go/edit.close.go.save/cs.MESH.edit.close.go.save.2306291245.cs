@@ -20,8 +20,8 @@ namespace LIB.cs2306291245
     public class Class : cs2306291123.Class, IClass
     {
         static new public string INFO = "INFO";
-        cs2306291207.Class.Struct Параметры;
-        public Class(cs2306291207.Class.Struct Параметры, GameObject go, System.Action<cs2305141202.IClass> ФункцияПостройки) : base(go, ФункцияПостройки)
+        cs2306301504.Class Параметры;
+        public Class(cs2306301504.Class Параметры, GameObject go, cs2305141208.Class.ПараметрыПостройки param_build) : base(go, param_build)
         {
             this.Параметры = Параметры;
         }

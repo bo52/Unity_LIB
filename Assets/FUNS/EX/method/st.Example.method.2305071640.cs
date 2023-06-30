@@ -40,14 +40,14 @@ namespace LIB.st2305071640
         /// <param name="obj"></param>
         /// <param name="name"></param>
         /// <param name="args"></param>
-        static public void fun230507164002(this object obj, string name, object[] args = null) => obj.GetType().GetMethod(name).Invoke(obj, args);
+        static public void fun230507164002_ВыполнитьМетодУОбъекта(this object obj, string name, object[] args = null) => obj.GetType().GetMethod(name).Invoke(obj, args);
         /// <summary>
         /// ВыполнитьМетод
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="name"></param>
         /// <param name="arg"></param>
-        static public void fun230507164003(this object obj, string name, object arg = null) => obj.GetType().GetMethod(name).Invoke(obj, new object[] { arg });
+        static public void fun230507164003_ВыполнитьМетодУОбъекта(this object obj, string name, object arg = null) => obj.GetType().GetMethod(name).Invoke(obj, new object[] { arg });
         ///exit
     }
 }

@@ -31,7 +31,7 @@ namespace LIB.cs2306282223
         {
             Vector3 v;
             st2306251639.Class.fun230625163902_ОчиститьКореньМира();
-            ПостроитьОдинЧанкЗемлиПоУмолчанию(null);
+            Построить(null);
             for (var z = 0; z <= Work_R; z++)
                 for (var x = -Work_R; x <= Work_R; x++)
                 {
@@ -47,9 +47,9 @@ namespace LIB.cs2306282223
             go.transform.position = v;
             ПривязатьМеш(go);
         }
-        public override void ПостроитьОдинЧанкЗемлиПоУмолчанию(GameObject go)
+        public override void Построить(GameObject go)
         {
-            if (!СуществуетМеш) base.ПостроитьОдинЧанкЗемлиПоУмолчанию(go);
+            if (!СуществуетМеш) base.Построить(go);
         }
         public void Интерфейс(GameObject go)
         {

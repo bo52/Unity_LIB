@@ -39,7 +39,19 @@ namespace LIB.cs2305141222
         /// <param name="Редактор"></param>
         public virtual void ТреугольникВерстки(cs2305141215.IClass Редактор)
         {
-            var arr = ФункцияВерстки == null ? st2306261718.Class.fun230626171800_ВерсткаБлока(Редактор) : ФункцияВерстки(Редактор);
+            Vector2[]arr;
+            if (ФункцияВерстки != null) arr = ФункцияВерстки(Редактор); else
+            {
+                switch (Редактор.ПараметрыПостройки.НомерРедактора)
+                {
+                    case 1:
+                        arr = st2306261718.Class.fun230626171800_ВерсткаБлока(Редактор as cs2306291643.Class);
+                        break;
+                    default:
+                        arr=new Vector2[8] { Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero };
+                        break;
+                }
+            }
             for (int i = 0; i < arr.Length; i++)
                 Развёртка[i].Add(arr[i]);
         }

@@ -1,4 +1,4 @@
-//empty
+п»ї//empty
 //empty
 //Vertices (stMesh.build.vertices)
 using System.Collections.Generic;
@@ -8,29 +8,23 @@ namespace LIB.cs2305141209
     /// <summary>
     /// stMesh.build.vertices.cs2305141209
     /// </summary>
-    public interface IClass
+    public interface IClass : cs2305141215.IClass
     {
-
+        void ADD(cs2306301359.Class Triangle);
     }
-    public class Class: cs2305141215.Class
+    public class Class : cs2305141215.Class, IClass
     {
-        public struct ВершиныТреугольника
+        cs2305141202.IClass Р’РµСЂС€РёРЅС‹РўСЂРµСѓРіРѕР»СЊРЅРёРєР°;
+        public Class(cs2305141208.Class.РџР°СЂР°РјРµС‚СЂС‹РџРѕСЃС‚СЂРѕР№РєРё param) : base(param)
         {
-            public Vector3 v1;
-            public Vector3 v2;
-            public Vector3 v3;
-            public ВершиныТреугольника(Vector3 v1, Vector3 v2, Vector3 v3)
-            {
-                this.v1 = v1;
-                this.v2 = v2;
-                this.v3 = v3;
-            }
+            Р’РµСЂС€РёРЅС‹РўСЂРµСѓРіРѕР»СЊРЅРёРєР° = new cs2305141202.Class(this);
         }
-        public void ДобавитьТреугольник(ВершиныТреугольника vs)
+        public void ADD(cs2306301359.Class Triangle)
         {
-                ДобавитьВершину(vs.v1);
-                ДобавитьВершину(vs.v2);
-                ДобавитьВершину(vs.v3);
+            Р’РµСЂС€РёРЅС‹РўСЂРµСѓРіРѕР»СЊРЅРёРєР°.v1 = Triangle.v1;
+            Р’РµСЂС€РёРЅС‹РўСЂРµСѓРіРѕР»СЊРЅРёРєР°.v2 = Triangle.v2;
+            Р’РµСЂС€РёРЅС‹РўСЂРµСѓРіРѕР»СЊРЅРёРєР°.v3 = Triangle.v3;
+            Р’РµСЂС€РёРЅС‹РўСЂРµСѓРіРѕР»СЊРЅРёРєР°.Р”РѕР±Р°РІРёС‚СЊРўСЂРµСѓРіРѕР»СЊРЅРёРє();
         }
     }
 }

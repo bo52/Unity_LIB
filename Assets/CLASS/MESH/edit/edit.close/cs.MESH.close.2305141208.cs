@@ -11,36 +11,40 @@ namespace LIB.cs2305141208
     public interface IClass
     {
         cs2305141215.IClass Editor { get; }
-        System.Action<cs2305141215.IClass> ФункцияПостройки { get; }
         Mesh ПолучитьМеш();
         Mesh Закрыть();
     }
     public class Class : IClass
     {
-        private cs2305141215.IClass _editor;
-        public cs2305141215.IClass Editor =>_editor;
-
-        private System.Action<cs2305141215.IClass> _fun_build;
-        public System.Action<cs2305141215.IClass> ФункцияПостройки => _fun_build;
-        public Class(System.Action<cs2305141215.IClass> ФункцияПостройки,byte НомерРедактора = 1)
+        public class ПараметрыПостройки
         {
-            _fun_build = ФункцияПостройки;
-            switch (НомерРедактора)
+            public System.Action<cs2305141215.IClass> ФункцияПостройки;
+            public byte НомерРедактора;
+            public ПараметрыПостройки(System.Action<cs2305141215.IClass> ФункцияПостройки,byte НомерРедактора)
+            {
+                this.ФункцияПостройки = ФункцияПостройки;
+                this.НомерРедактора = НомерРедактора;
+            }
+        }
+        private cs2305141215.IClass _editor; public cs2305141215.IClass Editor => _editor;
+        public Class(ПараметрыПостройки Параметры)
+        {
+            switch (Параметры.НомерРедактора)
             {
                 case 1:
-                    _editor = new cs2306291643.Class();
+                    _editor = new cs2306291643.Class(Параметры);
                     break;
                 case 2:
-                    _editor = new cs2305141209.Class();
+                    _editor = new cs2306301310.Class(Параметры);
                     break;
                 case 3:
-                    _editor = new cs2305141209.Class();
+                    _editor = new cs2305141209.Class(Параметры);
                     break;
             }
         }
         public virtual Mesh Закрыть()
         {
-            ФункцияПостройки(_editor);
+            _editor.ФункцияПостройки();
             return ПолучитьМеш();
         }
         public Mesh ПолучитьМеш()

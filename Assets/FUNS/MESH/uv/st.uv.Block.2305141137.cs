@@ -13,7 +13,7 @@ namespace LIB.st2305141137
         /// <summary>
         /// Arr
         /// </summary>
-        public static readonly Vector2[] field230514113700 = new Vector2[]
+        public static readonly Vector2[] field230514113700_first_square = new Vector2[]
         {
             Vector2.zero,//0
             Vector2.right,//1
@@ -23,7 +23,7 @@ namespace LIB.st2305141137
         /// <summary>
         /// faces
         /// </summary>
-        public static readonly Dictionary<byte, byte>[] field230514113701 = new Dictionary<byte, byte>[]
+        public static readonly Dictionary<byte, byte>[] field230514113701_face_square = new Dictionary<byte, byte>[]
         {
             new Dictionary<byte,byte>(){{0,0},{2,2},{4,1},{6,3}},//0
             new Dictionary<byte,byte>(){{1,0},{3,2},{5,1},{7,3},},//1
@@ -40,7 +40,7 @@ namespace LIB.st2305141137
         /// <returns></returns>
         public static Vector2 fun230514113702(this byte f, byte i)
         {
-            return field230514113700[field230514113701[f][i]];
+            return field230514113700_first_square[field230514113701_face_square[f][i]];
         }
         ///exit
     }

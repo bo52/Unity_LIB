@@ -35,7 +35,7 @@ namespace LIB.st2305141354
         /// <param name="max"></param>
         /// <param name="fun"></param>
         /// <returns></returns>
-        static public bool fun230514135401_Вектор(this ref Vector3 i, ref bool B, string header = "Векторы", int min = 1, int max = 5, System.Action<Vector3> fun = null, string name = "default")
+        static public bool fun230514135401_Вектор(this ref Vector3 i, ref bool B, string header = "Вектор", int min = 1, int max = 5, System.Action<Vector3> fun = null, string name = "default")
         {
             var b = false;
             var v = i;
