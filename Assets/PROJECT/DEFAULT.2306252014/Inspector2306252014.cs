@@ -15,9 +15,7 @@ namespace LIB.go2306252014
         new public IScene СЦЕНА => объектСЦЕНА as IScene;
         static class Классы
         {
-            public static string ОдинЧанкЗемлиПоУмолчанию51 = cs2306282238.Class.INFO;
-            public static string Выбранный = ОдинЧанкЗемлиПоУмолчанию51;
-            public static cs2306301501.IDefault X = st2305141614.Class.fun230514161402_СоздатьОбъектПоИмени(ОдинЧанкЗемлиПоУмолчанию51) as cs2306301501.IDefault;
+            public static cs2305071643_Default.IClass X = new cs2307011306_ТекстураЗемли.Class() as cs2305071643_Default.IClass;
         }
         override public bool Выполнить()
         {

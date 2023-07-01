@@ -11,14 +11,7 @@ namespace LIB.cs2306301501
     /// <summary>
     ///
     /// </summary>
-    public interface IDefault
-    {
-        bool ИнтерфейсПоУмолчанию(GameObject go, string name = "Построить");
-    }
-    /// <summary>
-    ///
-    /// </summary>
-    public interface IClass : IDefault
+    public interface IClass : cs2305071643_Default.IClass
     {
         public enum Редактор { empty, Block, square, triangle };
         Редактор ТипРедактора { get; }
@@ -31,9 +24,9 @@ namespace LIB.cs2306301501
     /// <summary>
     ///
     /// </summary>
-    public abstract class Class : IClass
+    public abstract class Class : cs2305071643_Default.Class, IClass
     {
-        static public string INFO = "INFO";
+        static new public string INFO = "INFO";
         public virtual IClass.Редактор ТипРедактора => IClass.Редактор.Block;
         public virtual string Path => "default/";
         public virtual string NameFile => "chunk";
@@ -49,7 +42,7 @@ namespace LIB.cs2306301501
         /// </summary>
         /// <param name="go"></param>
         /// <returns></returns>
-        public virtual bool ИнтерфейсПоУмолчанию(GameObject go, string name = "Построить")
+        public override bool ИнтерфейсПоУмолчанию(GameObject go, string name = "Построить")
         {
             return st2305161151.Class.fun230516115102_btn_name(name, () => Построить(go));
         }
