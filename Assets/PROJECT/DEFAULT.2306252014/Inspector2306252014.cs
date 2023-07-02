@@ -15,7 +15,7 @@ namespace LIB.go2306252014
         new public IScene СЦЕНА => объектСЦЕНА as IScene;
         static class Классы
         {
-            public static cs2305071643_Default.IClass X = new cs2307011306_ТекстураЗемли.Class() as cs2305071643_Default.IClass;
+            public static cs2305071643_Default.IClass X = new cs2306301442.Class() as cs2305071643_Default.IClass;
         }
         override public bool Выполнить()
         {

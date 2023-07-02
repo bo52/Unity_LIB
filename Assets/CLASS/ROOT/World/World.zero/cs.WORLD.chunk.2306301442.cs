@@ -21,7 +21,7 @@ namespace LIB.cs2306301442
     {
         static new public string INFO = "INFO";
         #region БазовыеПараметры
-        public override IClass.Редактор ТипРедактора => IClass.Редактор.square;
+        public override IClass.Редактор ТипРедактора => IClass.Редактор.Block;
         /// <summary>
         /// Путь файла
         /// </summary>
@@ -32,7 +32,11 @@ namespace LIB.cs2306301442
         public override string NameFile => "chunk.world.zero";
         #endregion
         #region ПараметрыКласса
-
+        cs2307011306_ТекстураЗемли.IClass ТекстураЗемли;
+        public Class()
+        {
+            ТекстураЗемли = new cs2307011306_ТекстураЗемли.Class();
+        }
         #endregion
         #region Показать
         /// <summary>
@@ -42,12 +46,29 @@ namespace LIB.cs2306301442
         /// <returns></returns>
         public override bool ИнтерфейсПоУмолчанию(GameObject go, string name)
         {
-            return base.ИнтерфейсПоУмолчанию(go, "ПлоскаяЗемля");
+            return base.ИнтерфейсПоУмолчанию(go, "ПостроитьТекстуруЗемли");
         }
         #endregion
         #region Постройка
+        private byte ВычислениеКода(Vector3 v)
+        {
+            return 51;
+        }
         public override void ФункцияПостройки(cs2305141215.IClass edit)
         {
+            var r = cs2307011306_ТекстураЗемли.IClass.РадиусВидимости;
+            var tex = ТекстураЗемли.ТЕКСТУРА;
+
+            Vector3 v;
+            float y;
+            for (var z= -r; z<= r;z++)
+                for (var x = -r; x <= r; x++)
+                {
+                    y = tex.GetPixel(ТекстураЗемли.ОтЦентра(x), ТекстураЗемли.ОтЦентра(z)).a*255;
+                    v = r*new Vector3(x, y, z);
+
+                    edit.ДОБАВИТЬ(new cs2306262134.Class(v, ВычислениеКода(v)));
+                }
         }
         #endregion
     }

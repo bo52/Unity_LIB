@@ -14,6 +14,8 @@ namespace LIB.cs2307011306_ТекстураЗемли
     /// </summary>
     public interface IClass : cs2307011446_ТекстураФайл.IClass
     {
+        public static byte РадиусВидимости = 32;
+        int ОтЦентра(int x);
     }
     /// <summary>
     ///
@@ -21,26 +23,59 @@ namespace LIB.cs2307011306_ТекстураЗемли
     public class Class : cs2307011446_ТекстураФайл.Class, IClass
     {
         static new public string INFO = "INFO";
-        static Texture2D НулеваяПоверхность;
-        static Vector3 ТекущееМестоположение = Vector3.zero;
-        static byte РадиусВидимости = 32;
         public override string PATH => "world.zero/texture" + SIZE;
+        static int ОпределениеСмещенияНачальнойВысоты => Random.Range(0, byte.MaxValue);
+        static int ОпределениеСмещенияВысоты => Random.Range(-1, 1);
+        static public Vector3Int ВекторПервойВершиныПоОси = Vector3Int.zero;
+        static public Vector3Int ВекторПоследнейВершиныПоОси = Vector3Int.zero;
 
-        static int ОпределениеСмещенияВысоты()
+        static Vector3Int ВычислениеПервойВершины
         {
-            //Случайное число -1 0 +1
-            return Mathf.;
+            get
+            {
+                ВекторПервойВершиныПоОси = new Vector3Int(0, ОпределениеСмещенияНачальнойВысоты, 0);
+                ВекторПоследнейВершиныПоОси = ВекторПервойВершиныПоОси;
+                return ВекторПоследнейВершиныПоОси;
+            }
         }
-        void НачальнаяНулеваяПоверхность()
+        static Vector3Int ВычислениеСледующейЗетВершины
         {
-            int y;
-            var tex = ТЕКСТУРА; 
-            for (var z = -РадиусВидимости; z <= РадиусВидимости; z++)
-                for (var x = -РадиусВидимости; x <= РадиусВидимости; x++)
+            get
+            {
+                ВекторПервойВершиныПоОси += new Vector3Int(0, ОпределениеСмещенияВысоты, 0);
+                ВекторПоследнейВершиныПоОси = ВекторПервойВершиныПоОси;
+                return ВекторПоследнейВершиныПоОси;
+            }
+        }
+        static Vector3Int ВычислениеСледующейВершины
+        {
+            get
+            {
+                ВекторПоследнейВершиныПоОси += new Vector3Int(0, ОпределениеСмещенияВысоты, 0);
+                return ВекторПоследнейВершиныПоОси;
+            }
+        }
+        static Vector3Int Вычисление(int x, int z)
+        {
+            if (z == -IClass.РадиусВидимости & x == -IClass.РадиусВидимости) return ВычислениеПервойВершины;
+            if (x == -IClass.РадиусВидимости) return ВычислениеСледующейЗетВершины;
+            return ВычислениеСледующейВершины;
+        }
+        public int ОтЦентра(int x) => R + x;
+        public override void Построить(GameObject go)
+        {
+            ВекторПоследнейВершиныПоОси = Vector3Int.zero;
+            ВекторПервойВершиныПоОси = Vector3Int.zero;
+            var tex = ТЕКСТУРА;
+            for (var z = -IClass.РадиусВидимости; z <= IClass.РадиусВидимости; z++)
+            {
+                for (var x = -IClass.РадиусВидимости; x <= IClass.РадиусВидимости; x++)
                 {
-                    y = ОпределениеСмещенияВысоты();
+                    Вычисление(x, z);
+                    tex.SetPixel(ОтЦентра(x), ОтЦентра(z), new Color32(0, 0, 0, (byte)ВекторПоследнейВершиныПоОси.y));
                 }
-            Сохранить();
+            }
+            base.Построить(go);
         }
     }
 }
