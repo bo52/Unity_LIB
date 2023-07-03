@@ -25,17 +25,16 @@ namespace LIB.cs2306271146
         }
         private bool СуществуетВершина(Vector3 v)
         {
-            if (v.x < v0.x || v.x > v0.x + hlw.Длинна) return false;
-            if (v.y < v0.y || v.y > v0.y + hlw.Высота) return false;
-            if (v.z < v0.z || v.z > v0.z + hlw.Ширина) return false;
+            if (v.x < v0.x || v.x > v0.x + hlw.Длинна + 1) return false;
+            if (v.y < v0.y || v.y > v0.y + hlw.Высота + 1) return false;
+            if (v.z < v0.z || v.z > v0.z + hlw.Ширина + 1) return false;
             return true;
         }
         //собрать
-        public void СобратьЧанк(GameObject go, bool Сохранить = false)
+        public void СобратьЧанк(cs2305141215.IClass edit)
         {
             Vector3 v;
             byte code;
-            var edit = new cs2305141202.Class(go);
             for (var x = 0; x <= R; x++)
                 for (var y = 0; y <= R; y++)
                     for (var z = 0; z <= R; z++)
@@ -43,11 +42,8 @@ namespace LIB.cs2306271146
                         //получитьКод
                         v = new Vector3(x, y, z);
                         code = st2306271209.Class.fun230627120900_СформироватьКодБлока(v, СуществуетВершина);
-                        edit.ИзменитьТекущийБлокИПостроить(new cs2306262134.Class(v, code));
+                        edit.ДОБАВИТЬ(new cs2306262134.Class(v, code));
                     }
-            if (Сохранить)
-                st2305161716.Class.fun230516171605_СохранитьМешПоИмениОтРедактора(edit, hlw.ИмяЧанка, hlw.PATH + "/");
-            else st2305072046.Class.fun230507204601_ПривязатьМешОтРедактора(edit);
         }
     }
 }

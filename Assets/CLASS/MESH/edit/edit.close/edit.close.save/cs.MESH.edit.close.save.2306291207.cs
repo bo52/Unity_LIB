@@ -21,7 +21,7 @@ namespace LIB.cs2306291207
     {
         static public string INFO = "INFO";
         cs2306301504.Class Параметры;
-        public Class(cs2306301504.Class Параметры, cs2305141208.Class.ПараметрыПостройки param_build) : base(param_build)
+        public Class(cs2306301504.Class Параметры, cs2307031203_ПараметрыПостройки.Class param_build) : base(param_build)
         {
             this.Параметры = Параметры;
         }

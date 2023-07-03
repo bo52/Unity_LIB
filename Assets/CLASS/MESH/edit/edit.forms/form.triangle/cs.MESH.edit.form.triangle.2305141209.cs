@@ -15,7 +15,7 @@ namespace LIB.cs2305141209
     public class Class : cs2305141215.Class, IClass
     {
         cs2305141202.IClass ВершиныТреугольника;
-        public Class(cs2305141208.Class.ПараметрыПостройки param) : base(param)
+        public Class(cs2307031203_ПараметрыПостройки.Class param) : base(param)
         {
             ВершиныТреугольника = new cs2305141202.Class(this);
         }

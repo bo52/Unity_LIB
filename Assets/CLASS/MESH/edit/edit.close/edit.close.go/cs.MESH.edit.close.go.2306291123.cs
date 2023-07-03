@@ -14,16 +14,18 @@ namespace LIB.cs2306291123
     /// <summary>
     ///
     /// </summary>
-    public class Class: cs2305141208.Class,IClass
+    public class Class : cs2305141208.Class, IClass
     {
         static public string INFO = "INFO";
         private GameObject _go; public GameObject GO => _go;
-        public Class(GameObject go, cs2305141208.Class.ПараметрыПостройки param_build) :base(param_build) => this._go = go;
-        public override Mesh Закрыть()
+        public Class(GameObject go, cs2307031203_ПараметрыПостройки.Class param_build) : base(param_build) => this._go = go;
+
+        public Mesh Привязать(GameObject go)
         {
             var M = base.Закрыть();
-            st2305072046.Class.fun230507204600_ПривязатьМешКОбъекту(M, GO);
+            st2305072046.Class.fun230507204600_ПривязатьМешКОбъекту(M, go);
             return M;
         }
+        public override Mesh Закрыть() => Привязать(GO);
     }
 }

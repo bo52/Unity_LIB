@@ -22,7 +22,7 @@ namespace LIB.cs2306301310
     {
         static public string INFO = "INFO";
         private cs2305181555.IClass ВершиныКвадрата;
-        public Class(cs2305141208.Class.ПараметрыПостройки param) : base(param)
+        public Class(cs2307031203_ПараметрыПостройки.Class param) : base(param)
         {
             ВершиныКвадрата = new cs2305181555.Class(this);
         }

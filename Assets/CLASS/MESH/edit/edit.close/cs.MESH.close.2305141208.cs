@@ -10,24 +10,15 @@ namespace LIB.cs2305141208
     /// </summary>
     public interface IClass
     {
+        public enum Редактор { empty, Block, square, triangle };
         cs2305141215.IClass Editor { get; }
         Mesh ПолучитьМеш();
         Mesh Закрыть();
     }
     public class Class : IClass
     {
-        public class ПараметрыПостройки
-        {
-            public System.Action<cs2305141215.IClass> ФункцияПостройки;
-            public byte НомерРедактора;
-            public ПараметрыПостройки(System.Action<cs2305141215.IClass> ФункцияПостройки,byte НомерРедактора=1)
-            {
-                this.ФункцияПостройки = ФункцияПостройки;
-                this.НомерРедактора = НомерРедактора;
-            }
-        }
         private cs2305141215.IClass _editor; public cs2305141215.IClass Editor => _editor;
-        public Class(ПараметрыПостройки Параметры)
+        public Class(cs2307031203_ПараметрыПостройки.Class Параметры)
         {
             switch (Параметры.НомерРедактора)
             {

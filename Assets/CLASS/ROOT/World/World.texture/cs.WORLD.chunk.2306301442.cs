@@ -21,7 +21,7 @@ namespace LIB.cs2306301442
     {
         static new public string INFO = "INFO";
         #region БазовыеПараметры
-        public override IClass.Редактор ТипРедактора => IClass.Редактор.Block;
+        public override string ИмяКнопки => "ПостроитьТекстуруЗемли";
         /// <summary>
         /// Путь файла
         /// </summary>
@@ -33,21 +33,12 @@ namespace LIB.cs2306301442
         #endregion
         #region ПараметрыКласса
         cs2307011306_ТекстураЗемли.IClass ТекстураЗемли;
-        public Class()
+        public Class(GameObject go):base(go)
         {
-            ТекстураЗемли = new cs2307011306_ТекстураЗемли.Class();
+            ТекстураЗемли = new cs2307011306_ТекстураЗемли.Class(go);
         }
         #endregion
         #region Показать
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="go"></param>
-        /// <returns></returns>
-        public override bool ИнтерфейсПоУмолчанию(GameObject go, string name)
-        {
-            return base.ИнтерфейсПоУмолчанию(go, "ПостроитьТекстуруЗемли");
-        }
         #endregion
         #region Постройка
         private byte ВычислениеКода(Vector3 v)

@@ -131,7 +131,7 @@ namespace LIB.st2305221228
             foreach (var сосед_путь in field230522122800[0])
             {
                 var v = Блок.Координата.v + сосед_путь;
-                var id = st2305211702.CLASS.fun230521170203(v);
+                var id = st2305211702.CLASS.fun230521170203_ПолучитьНомер(v);
                 var B = Блок.Карта.ContainsKey(id) ? Блок.Карта[id] : new cs2305221237.Class(v, id, Блок.Карта);
 
                 var b = B.Код + Mathf.Pow(2, field230522122801[0][i]) * (Блок.существует ? 1 : -1);

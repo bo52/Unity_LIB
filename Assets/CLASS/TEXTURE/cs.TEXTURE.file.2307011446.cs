@@ -12,7 +12,7 @@ namespace LIB.cs2307011446_ТекстураФайл
     /// <summary>
     /// Текстура файл
     /// </summary>
-    public interface IClass : cs2305071643_Default.IClass
+    public interface IClass
     {
         Texture2D ТЕКСТУРА { get; }
         string PATH { get; }
@@ -22,9 +22,9 @@ namespace LIB.cs2307011446_ТекстураФайл
     /// <summary>
     ///
     /// </summary>
-    public class Class : cs2305071643_Default.Class, IClass
+    public class Class : IClass
     {
-        static new public string INFO = "INFO";
+        static public string INFO = "INFO";
         public int SIZE = 8192;
         public int R = 4096;
         Texture2D НоваяТекстура => new Texture2D(SIZE, SIZE, TextureFormat.RGBA32, false);
@@ -43,12 +43,10 @@ namespace LIB.cs2307011446_ТекстураФайл
                 return _tex;
             }
         }
-        protected string _path = "test"; public virtual string PATH => _path;
+        protected string _path = "test";
+        public virtual string PATH => _path;
         public string Файл => "TEXTURES/" + PATH + ".png";
-        public void Сохранить()
-        {
-            st2306252021.Class.fun230625202100_SaveTextureToFile(ТЕКСТУРА, "Assets/Resources/" + Файл);
-        }
+        public void Сохранить() => st2306252021.Class.fun230625202100_SaveTextureToFile(ТЕКСТУРА, "Assets/Resources/" + Файл);
         public bool Загрузить
         {
             get
@@ -57,11 +55,6 @@ namespace LIB.cs2307011446_ТекстураФайл
                 _tex = Resources.Load(Path.GetFileName(Файл), typeof(Texture)) as Texture2D;
                 return true;
             }
-        }
-        public override void Построить(GameObject go)
-        {
-            Сохранить();
-            //Открыть();
         }
         public void Открыть() => st2306261354.Class.fun230626135400_ОткрытьФайл("Assets/Resources/" + Файл);
 
