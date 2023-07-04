@@ -15,7 +15,14 @@ namespace LIB.cs2307011306_ТекстураЗемли
     public interface IClass : cs2307011446_ТекстураФайл.IClass
     {
         public static byte РадиусВидимости = 32;
-        int ОтЦентра(int x);
+        public static int РадиусТекстуры = 4096;
+        cs2307031639_ВидимыеЧанкиТекстуры.IClass ВидимыеЧанкиТекстуры { get; }
+        Vector3Int НулеваяКоординатаЧанка { get; set; }
+        public static int ОтЦентра(int x, int смещение) => x + РадиусТекстуры + смещение;
+        Vector3Int КоординатаТекстурыОтЦентра(int x, int h, int z);
+        Vector2Int КоординатаТекстурыОтЦентра(int x, int z);
+        //Vector2Int КоординатаТекстурыБезЦентра(Vector2Int v);
+        void Сбросить();
     }
     /// <summary>
     ///
@@ -25,76 +32,25 @@ namespace LIB.cs2307011306_ТекстураЗемли
         static new public string INFO = "INFO";
         public override string PATH => "world.zero/texture" + SIZE;
         #region ПараметрыКласса
-        public cs2307031639_ВидимыеЧанкиТекстуры.IClass ВидимыеЧанкиТекстуры;
+        private cs2307031639_ВидимыеЧанкиТекстуры.IClass _chs; public cs2307031639_ВидимыеЧанкиТекстуры.IClass ВидимыеЧанкиТекстуры => _chs;
+        private Vector3Int _v_zero = Vector3Int.zero; public Vector3Int НулеваяКоординатаЧанка { get => _v_zero; set => _v_zero = value; }
         public Class(GameObject go)
         {
-            ВидимыеЧанкиТекстуры = new cs2307031639_ВидимыеЧанкиТекстуры.Class(go,this);
+            _chs = new cs2307031639_ВидимыеЧанкиТекстуры.Class(go, this);
         }
-        #endregion
-        #region СтатФункции
-        static int ОпределениеСмещенияНачальнойВысоты => Random.Range(0, byte.MaxValue);
-        static int ОпределениеСмещенияВысоты => Random.Range(-1, 1);
-        static public Vector3Int ВекторПервойВершиныПоОси = Vector3Int.zero;
-        static public Vector3Int ВекторПоследнейВершиныПоОси = Vector3Int.zero;
         #endregion
         #region ФункцииКласса
-        public int ОтЦентра(int x) => R + x;
-        static Vector3Int Вычисление(int x, int z)
-        {
-            if (z == -IClass.РадиусВидимости & x == -IClass.РадиусВидимости) return ВычислениеПервойВершины;
-            if (x == -IClass.РадиусВидимости) return ВычислениеСледующейЗетВершины;
-            return ВычислениеСледующейВершины;
-        }
-        static Vector3Int ВычислениеПервойВершины
-        {
-            get
-            {
-                ВекторПервойВершиныПоОси = new Vector3Int(0, ОпределениеСмещенияНачальнойВысоты, 0);
-                ВекторПоследнейВершиныПоОси = ВекторПервойВершиныПоОси;
-                return ВекторПоследнейВершиныПоОси;
-            }
-        }
-        static Vector3Int ВычислениеСледующейЗетВершины
-        {
-            get
-            {
-                ВекторПервойВершиныПоОси += new Vector3Int(0, ОпределениеСмещенияВысоты, 0);
-                ВекторПоследнейВершиныПоОси = ВекторПервойВершиныПоОси;
-                return ВекторПоследнейВершиныПоОси;
-            }
-        }
-        static Vector3Int ВычислениеСледующейВершины
-        {
-            get
-            {
-                ВекторПоследнейВершиныПоОси += new Vector3Int(0, ОпределениеСмещенияВысоты, 0);
-                return ВекторПоследнейВершиныПоОси;
-            }
-        }
+        public Vector3Int КоординатаТекстурыОтЦентра(int x, int h, int z) => new Vector3Int(IClass.ОтЦентра(x, НулеваяКоординатаЧанка.x), h, IClass.ОтЦентра(z, НулеваяКоординатаЧанка.z));
+        public Vector2Int КоординатаТекстурыОтЦентра(int x, int z) => new Vector2Int(IClass.ОтЦентра(x, НулеваяКоординатаЧанка.x), IClass.ОтЦентра(z, НулеваяКоординатаЧанка.z));
+        //public Vector2Int КоординатаТекстурыБезЦентра(Vector2Int v) => 
         #endregion
         public void Сбросить()
         {
             ВидимыеЧанкиТекстуры.Очистить();
-            ВекторПоследнейВершиныПоОси = Vector3Int.zero;
-            ВекторПервойВершиныПоОси = Vector3Int.zero;
         }
-        public virtual void ПостроитьВидимуюПоверхностьСНуля(GameObject go)
+        public void Построить()
         {
-            Сбросить();
-
-            var tex = ТЕКСТУРА;
-            Vector3Int v;
-            for (var z = -IClass.РадиусВидимости; z <= IClass.РадиусВидимости; z++)
-            {
-                for (var x = -IClass.РадиусВидимости; x <= IClass.РадиусВидимости; x++)
-                {
-                    Вычисление(x, z);
-                    v = new Vector3Int(ОтЦентра(x), ВекторПоследнейВершиныПоОси.y, ОтЦентра(z));
-                    tex.SetPixel(v.x, v.z, new Color32(0, 0, 0, (byte)v.y));
-                    ВидимыеЧанкиТекстуры.Добавить(v);
-                }
-            }
-            ВидимыеЧанкиТекстуры.ПостроитьВсюПоверхностьЗемли();
+            st2306262206_ВычислитьВысотуЯчеекТекстуры.Class.fun230626220611_ВычислитьВысотуЯчеекТекстуры(this);
         }
     }
 }

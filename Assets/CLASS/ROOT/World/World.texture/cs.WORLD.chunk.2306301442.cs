@@ -55,7 +55,7 @@ namespace LIB.cs2306301442
             for (var z= -r; z<= r;z++)
                 for (var x = -r; x <= r; x++)
                 {
-                    y = tex.GetPixel(ТекстураЗемли.ОтЦентра(x), ТекстураЗемли.ОтЦентра(z)).a*255;
+                    //y = tex.GetPixel(ТекстураЗемли.ОтЦентра(x), ТекстураЗемли.ОтЦентра(z)).a*255;
                     v = r*new Vector3(x, y, z);
 
                     edit.ДОБАВИТЬ(new cs2306262134.Class(v, ВычислениеКода(v)));

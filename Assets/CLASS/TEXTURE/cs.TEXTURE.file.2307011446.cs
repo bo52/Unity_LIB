@@ -26,7 +26,6 @@ namespace LIB.cs2307011446_ТекстураФайл
     {
         static public string INFO = "INFO";
         public int SIZE = 8192;
-        public int R = 4096;
         Texture2D НоваяТекстура => new Texture2D(SIZE, SIZE, TextureFormat.RGBA32, false);
         Texture2D _tex; public Texture2D ТЕКСТУРА
         {

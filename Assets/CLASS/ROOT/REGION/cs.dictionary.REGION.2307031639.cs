@@ -25,7 +25,6 @@ namespace LIB.cs2307031639_ВидимыеЧанкиТекстуры
     {
         static public string INFO = "INFO";
         #region ПараметрыКласса
-        private Vector3 _v_zero = Vector3.zero; public Vector3 НулеваяКоординатаЧанка { get => _v_zero; set => _v_zero = value; }
         private GameObject _go; GameObject GO => _go;
         private cs2307011446_ТекстураФайл.Class _TextrueLab; cs2307011446_ТекстураФайл.Class ТекстураЗемли => _TextrueLab;
         public Class(GameObject go, cs2307011446_ТекстураФайл.Class tex)
@@ -52,15 +51,30 @@ namespace LIB.cs2307031639_ВидимыеЧанкиТекстуры
             }
         }
         private cs2307031203_ПараметрыПостройки.Class _param_build => new cs2307031203_ПараметрыПостройки.Class(ФункцияПостройки);
+
         private void ФункцияПостройки(cs2305141215.IClass edit)
         {
-            //ТекстураЗемли
+            var edit_modif = edit as cs2307031649.IClass;
+            var v = edit_modif.КоординатаЧанка;
+            var c = ТекстураЗемли.ТЕКСТУРА.GetPixel((int)v.x, (int)v.y);
+            byte R = 32;
+            Vector3Int num;
+            byte КодБлока;
+
+            for (var y = 0; y < R; y++)
+                for (var x = 0; x < R; x++)
+                    for (var z = 0; z < R; z++)
+                    {
+                        num = new Vector3Int(x, y, z);
+                        КодБлока = 0;
+                        edit.ДОБАВИТЬ(new cs2306262134.Class(num,КодБлока));
+                    }
         }
         #endregion
         //смещение
         public void СмещениеНулевойКоординатыЗемли(Vector3 dv)
         {
-            НулеваяКоординатаЧанка += dv;
+            //НулеваяКоординатаЧанка += dv;
             //switch (dv)
             //{
             //case Vector3.left:break;
