@@ -20,6 +20,7 @@ namespace LIB.st2305271031
             //uint y = ((id - field230521171702 * z) / field230521171701);
             //uint x = (id - field230521171701 * y - field230521171702 * z);
             //return new Vector3(x, y, z);
+            return Vector3.zero;
         }
         /// <summary>
         /// 
