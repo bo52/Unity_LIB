@@ -21,10 +21,25 @@ namespace LIB.cs2305071643_Chunk_default
     {
         static new public string INFO = "INFO";
         public override string ИмяКнопки => "ПостроитьБезСохранения";
-        private GameObject _go; public GameObject ИгровойОбъект => _go;
+        public virtual string ИмяИгровогоОбъекта =>"empty";
+        private GameObject _go;
+        public virtual GameObject ИгровойОбъект
+        {
+            get
+            {
+                if (_go == null)
+                {
+                    _go = GameObject.Find(ИмяИгровогоОбъекта);
+                    if (_go == null)
+                    {
+                        _go = st2306251639.Class.prop230625163904_НовыйОбъектВКорнеМира(ИмяИгровогоОбъекта);
+                    }
+                }
+                return _go;
+            }
+        }
         public Class()
         {
-            _go = st2306251639.Class.prop230625163904_НовыйОбъектВКорнеМира;
         }
         public virtual cs2305141208.IClass.Редактор ТипРедактора => cs2305141208.IClass.Редактор.Block;
         private cs2307031203_ПараметрыПостройки.Class _param_build => new cs2307031203_ПараметрыПостройки.Class(ФункцияПостройки, ТипРедактора);

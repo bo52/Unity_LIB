@@ -39,14 +39,12 @@ namespace LIB.st2306251639
         /// <summary>
         /// 
         /// </summary>
-        static public GameObject prop230625163904_НовыйОбъектВКорнеМира
+        static public GameObject prop230625163904_НовыйОбъектВКорнеМира(string name = "empty")
         {
-            get
-            {
-                GameObject go = new GameObject();
-                go.transform.SetParent(prop230625163901_ОбъектКореньМира.transform);
-                return go;
-            }
+            GameObject go = new GameObject();
+            go.transform.SetParent(prop230625163901_ОбъектКореньМира.transform);
+            go.name = name;
+            return go;
         }
         ///exit
     }

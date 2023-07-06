@@ -20,14 +20,15 @@ namespace LIB.cs2306221522_ЧанкПаралепипеда
         public override string ИмяКнопки => "ПостроитьЧанкПаралепипед";
         #region ПараметрыКласса
         private cs2306271146_РедакторПаралепипеда.IClass РедакторПаралепипеда = new cs2306271146_РедакторПаралепипеда.Class();
-        public Class() :base()
+        public override string ИмяИгровогоОбъекта => "ЧанкПаралепипед";
+        public Class() : base()
         {
         }
         #endregion
         public override bool ИнтерфейсПоУмолчанию()
         {
             if (РедакторПаралепипеда.ИнтерфейсПоУмолчанию()) Выполнить();
-            return false;
+            return base.ИнтерфейсПоУмолчанию();
         }
 
         public override bool СуществуетВершина(Vector3 v) => РедакторПаралепипеда.СуществуетВершина(v);
