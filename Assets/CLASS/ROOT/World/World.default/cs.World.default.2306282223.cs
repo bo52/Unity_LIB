@@ -30,8 +30,8 @@ namespace LIB.cs2306282223
         public void СоздатьНачалоСуществованияМира()
         {
             Vector3 v;
-            st2306251639.Class.fun230625163902_ОчиститьКореньМира();
-            Построить(null);
+            st2306251639.Class.fun230625163903_ОчиститьКореньМира();
+            ПостроитьСЗакрытием(null);
             for (var z = 0; z <= Work_R; z++)
                 for (var x = -Work_R; x <= Work_R; x++)
                 {
@@ -47,9 +47,9 @@ namespace LIB.cs2306282223
             go.transform.position = v;
             ПривязатьМеш(go);
         }
-        public override void Построить(GameObject go)
+        public override void ПостроитьСЗакрытием(GameObject go)
         {
-            if (!СуществуетМеш) base.Построить(go);
+            if (!СуществуетМеш) base.ПостроитьСЗакрытием(go);
         }
         public void Интерфейс(GameObject go)
         {

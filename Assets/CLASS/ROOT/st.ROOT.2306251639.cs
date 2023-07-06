@@ -32,9 +32,21 @@ namespace LIB.st2306251639
         /// <summary>
         ///
         /// </summary>
-        static public void fun230625163902_ОчиститьКореньМира()
+        static public void fun230625163903_ОчиститьКореньМира()
         {
             st2305221205.Class.fun230522120502_УдалениеДочернихОбъектов(prop230625163901_ОбъектКореньМира.transform);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        static public GameObject prop230625163904_НовыйОбъектВКорнеМира
+        {
+            get
+            {
+                GameObject go = new GameObject();
+                go.transform.SetParent(prop230625163901_ОбъектКореньМира.transform);
+                return go;
+            }
         }
         ///exit
     }

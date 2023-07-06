@@ -18,7 +18,7 @@ namespace LIB.go2306252014
         private cs2307031414_Default.IClass _X; public cs2307031414_Default.IClass X {
             get
             {
-                if (_X==null) _X = new cs2306221522.Class(Моно.gameObject);
+                if (_X==null) _X = new cs2306221522_ЧанкПаралепипеда.Class();
                 return _X;
             } 
         }

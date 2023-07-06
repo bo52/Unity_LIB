@@ -14,7 +14,7 @@ namespace LIB.go2305271030
     public class Inspector : go2305081120.Inspector, IInspector
     {
         new public IScene СЦЕНА => объектСЦЕНА as IScene;
-        private cs2306221522.IClass Редактор = new cs2306221522.Class();
+        private cs2306221522_ЧанкПаралепипеда.IClass Редактор = new cs2306221522_ЧанкПаралепипеда.Class();
 
         public override bool Тест()
         {

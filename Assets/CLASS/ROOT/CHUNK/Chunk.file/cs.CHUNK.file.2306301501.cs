@@ -25,12 +25,12 @@ namespace LIB.cs2306301501
         static new public string INFO = "INFO";
         public virtual string Path => "default/";
         public virtual string NameFile => "chunk";
-        public Class(GameObject go):base(go)
+        public Class():base()
         {
             _param_chunk = new cs2306301504.Class(NameFile, Path);
         }
         protected cs2306301504.Class _param_chunk; 
         public cs2306301504.Class ПараметрыЧанка => _param_chunk;
-        public override void Построить(GameObject go) => ПараметрыЧанка.ПостроитьМеш(new cs2307031203_ПараметрыПостройки.Class(ФункцияПостройки, (byte)ТипРедактора), go);
+        public override void ПостроитьСЗакрытием() => ПараметрыЧанка.ПостроитьМеш(new cs2307031203_ПараметрыПостройки.Class(ФункцияПостройки, (byte)ТипРедактора), ИгровойОбъект);
     }
 }

@@ -27,7 +27,5 @@ namespace LIB.cs2307051154_ЧанкИзЦветныхБлоковЗемлиСК�
         }
         #endregion
         static new public string INFO = "INFO";
-        public Dictionary<ulong, cs2307051205_ЦветнойКодБлока.Class> КораЗемли = new Dictionary<ulong, cs2307051205_ЦветнойКодБлока.Class>();
-        public Dictionary<ulong, cs2307051205_ЦветнойКодБлока.Class> БлокиЗемли = new Dictionary<ulong, cs2307051205_ЦветнойКодБлока.Class>();
     }
 }

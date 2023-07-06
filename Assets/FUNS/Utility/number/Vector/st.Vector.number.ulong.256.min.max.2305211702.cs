@@ -4,7 +4,7 @@ namespace LIB.st2305211702
     /// <summary>
     /// stVector256_ulong
     /// </summary>
-    static public class CLASS
+    static public class Class
     {
         /// <summary>
         /// n
@@ -40,12 +40,16 @@ namespace LIB.st2305211702
             ulong x = id - field230521170201 * y - field230521170202 * z;
             return new Vector3(x, y, z) - field230521170200 * Vector3.one;
         }
-        static public void test(Vector3 v)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="v"></param>
+        static public void fun230521170205_test(Vector3 v)
         {
             ulong id = v.fun230521170203_ПолучитьНомер();
             Vector3 V = id.fun230521170204_ПолучитьВектор();
             Debug.Log(id + ":(" + v.x + "," + v.y + "," + v.z + ")=(" + V.x + "," + V.y + "," + V.z + ")");
         }
-
+        ///exit
     }
 }
