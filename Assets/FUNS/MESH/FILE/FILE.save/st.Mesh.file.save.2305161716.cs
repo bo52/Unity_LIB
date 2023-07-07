@@ -14,7 +14,7 @@ namespace LIB.st2305161716
         /// <summary>
         /// 
         /// </summary>
-        static public void fun230516171600_СохранитьМеш(this Mesh M,string asset)
+        static public void fun230516171600_СохранитьМеш(this Mesh M, string asset)
         {
             if (System.IO.File.Exists(asset))
                 AssetDatabase.SaveAssets();
@@ -26,10 +26,14 @@ namespace LIB.st2305161716
         /// go.GetComponent<MeshFilter>().sharedMesh
         /// </summary>
         /// <param name="go"></param>
-        static public void fun230516171601_ПереСохранитьМешОбъекта(this GameObject go)
-        {
-            go.GetComponent<MeshFilter>().sharedMesh.fun230516171600_СохранитьМеш(st2305181538.Class.fun230518153802_ПолучитьФайлМешаПоОбъекту(go));
-        }
+        static public void fun230516171601_ПереСохранитьМешОбъекта(this GameObject go) => go.GetComponent<MeshFilter>().sharedMesh.fun230516171600_СохранитьМеш(st2305181538.Class.fun230518153802_ПолучитьФайлМешаПоОбъекту(go));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="go"></param>
+        /// <param name="id"></param>
+        /// <param name="path"></param>
+        static public void fun230516171606_ПереСохранитьМешОбъектаИменем(this GameObject go, string id, string path = "") => go.GetComponent<MeshFilter>().sharedMesh.fun230516171600_СохранитьМеш(st2305181538.Class.fun230518153801_ПолучитьФайлМешаПоИмени(id, path));
         /// <summary>
         /// СохранитьМешОбъекта
         /// </summary>
@@ -56,7 +60,7 @@ namespace LIB.st2305161716
         /// <param name="M"></param>
         /// <param name="id"></param>
         /// <param name="path"></param>
-        static public void fun230516171604_СохранитьМешПоИмени(Mesh M, string namefile, string path="")
+        static public void fun230516171604_СохранитьМешПоИмени(Mesh M, string namefile, string path = "")
         {
             M.fun230516171600_СохранитьМеш(st2305181538.Class.fun230518153801_ПолучитьФайлМешаПоИмени(namefile, path));
         }

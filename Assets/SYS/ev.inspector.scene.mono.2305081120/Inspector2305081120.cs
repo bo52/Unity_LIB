@@ -12,6 +12,7 @@ namespace LIB.go2305081120
     /// </summary>
     public interface IInspector : go2305082132.IInspector
     {
+        cs2307031414_Default.IClass Объект { get; set; }
         IScene СЦЕНА { get; }
     }
     /// <summary>
@@ -21,6 +22,8 @@ namespace LIB.go2305081120
     {
         public IScene СЦЕНА => объектСЦЕНА as IScene;
         private object Scene;
+
+        private cs2307031414_Default.IClass _obj; public cs2307031414_Default.IClass Объект { get=> _obj; set=> _obj=value; }
         public object объектСЦЕНА
         {
             get
@@ -31,6 +34,7 @@ namespace LIB.go2305081120
         }
         public override bool Выполнить()
         {
+            Объект?.ИнтерфейсПоУмолчанию();
             GUILayout.Label("КлассМира=" + this.GetType().ToString());
             return base.Выполнить();
         }

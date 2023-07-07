@@ -60,11 +60,22 @@ namespace LIB.st2305141614
         /// <param name="number"></param>
         /// <param name="p"></param>
         /// <returns></returns>
-        static public cs2305161108.Mono fun230514161406(uint number, GameObject p = null)
+        static public cs2305161108.Mono fun230514161406_СоздатьОбъектСМоно(uint number, GameObject p = null)
         {
             var go = new GameObject();
             go.transform.SetParent(p == null ? st2306251639.Class.prop230625163901_ОбъектКореньМира.transform : p.transform);
+            return fun230514161407_ПривязатьМоноКОбъекту(go, number);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="go"></param>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        static public cs2305161108.Mono fun230514161407_ПривязатьМоноКОбъекту(GameObject go,uint number = 2305081120)
+        {
             var scr = go.AddComponent<cs2305161108.Mono>();
+            scr.ИзменитьМир(number);
             return scr;
         }
         ///exit

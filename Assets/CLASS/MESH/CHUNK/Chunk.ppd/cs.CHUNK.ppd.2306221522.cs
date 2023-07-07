@@ -10,6 +10,7 @@ namespace LIB.cs2306221522_ЧанкПаралепипеда
     /// </summary>
     public interface IClass : cs2307061242_СловарныйЧанк.IClass
     {
+        cs2306271146_РедакторПаралепипеда.IClass РедакторПаралепипеда { get; }
     }
     /// <summary>
     /// рекурсивный куб с координатой
@@ -19,7 +20,7 @@ namespace LIB.cs2306221522_ЧанкПаралепипеда
         static new public string INFO = "INFO";
         public override string ИмяКнопки => "ПостроитьЧанкПаралепипед";
         #region ПараметрыКласса
-        private cs2306271146_РедакторПаралепипеда.IClass РедакторПаралепипеда = new cs2306271146_РедакторПаралепипеда.Class();
+        private cs2306271146_РедакторПаралепипеда.IClass _editor = new cs2306271146_РедакторПаралепипеда.Class(); public cs2306271146_РедакторПаралепипеда.IClass РедакторПаралепипеда { get => _editor; }
         public override string ИмяИгровогоОбъекта => "ЧанкПаралепипед";
         public Class() : base()
         {

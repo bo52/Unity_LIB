@@ -13,6 +13,7 @@ namespace LIB.cs2305071643_Chunk_default
         cs2305141208.IClass.Редактор ТипРедактора { get; }
         Mesh ПостроитьСЗакрытием();
         void ФункцияПостройки(cs2305141215.IClass edit);
+        GameObject НовыйИгровойОбъект { get; }
     }
     /// <summary>
     /// универсальный класс по получению информации
@@ -21,8 +22,11 @@ namespace LIB.cs2305071643_Chunk_default
     {
         static new public string INFO = "INFO";
         public override string ИмяКнопки => "ПостроитьБезСохранения";
-        public virtual string ИмяИгровогоОбъекта =>"empty";
+        public virtual string ИмяИгровогоОбъекта => "empty";
+        public virtual string ФайлИгровогоОбъекта => "empty";
         private GameObject _go;
+
+        public virtual GameObject НовыйИгровойОбъект => st2306251639.Class.prop230625163904_НовыйОбъектВКорнеМира(ИмяИгровогоОбъекта);
         public virtual GameObject ИгровойОбъект
         {
             get
@@ -32,12 +36,13 @@ namespace LIB.cs2305071643_Chunk_default
                     _go = GameObject.Find(ИмяИгровогоОбъекта);
                     if (_go == null)
                     {
-                        _go = st2306251639.Class.prop230625163904_НовыйОбъектВКорнеМира(ИмяИгровогоОбъекта);
+                        _go = НовыйИгровойОбъект;
                     }
                 }
                 return _go;
             }
         }
+        public void СохранитьЧанк() => st2305161716.Class.fun230516171606_ПереСохранитьМешОбъектаИменем(ИгровойОбъект, ФайлИгровогоОбъекта);
         public Class()
         {
         }
@@ -46,5 +51,13 @@ namespace LIB.cs2305071643_Chunk_default
         public virtual Mesh ПостроитьСЗакрытием() => new cs2306291123.Class(ИгровойОбъект, _param_build).Закрыть();
         public override void Выполнить() => ПостроитьСЗакрытием();
         public abstract void ФункцияПостройки(cs2305141215.IClass edit);
+        public override bool ИнтерфейсПоУмолчанию()
+        {
+            GUILayout.BeginHorizontal();
+            st2305161151.Class.fun230516115102_btn_name("СохранитьЧанк", СохранитьЧанк);
+            base.ИнтерфейсПоУмолчанию();
+            GUILayout.EndHorizontal();
+            return true;
+        }
     }
 }

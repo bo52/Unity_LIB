@@ -8,68 +8,19 @@ namespace LIB.cs2306271146_РедакторПаралепипеда
     public interface IClass
     {
         public static int R = cs2307061242_СловарныйЧанк.IClass.РазмерЧанка;
-        public static int r = (int)(0.5f * R - 1);
         bool СуществуетВершина(Vector3 v);
         bool ИнтерфейсПоУмолчанию();
+        cs2307071130_ВысотаПаралепипеда.IClass H { get; }
     }
     /// <summary>
     ///
     /// </summary>
     public class Class: IClass
     {
-        Вектор D = new Вектор("ДЛИННА");
-        Вектор W = new Вектор("ШИРИНА");
-        class Вектор
-        {
-            private bool Развернуть = false;
-            private Vector2 _v; public int Левая { get => (int)_v.x; set => _v.x = value; } public int Правая { get => (int)_v.y; set => _v.y = value; }
-            private string name_x = "x";
-            private string name_z = "z";
-            private int x_min = 0;
-            private int z_min = 0;
-            private int x_max = 100;
-            private int z_max = 100;
-            private string header = "Вектор";
-            public Вектор(string header)
-            {
-                this.header = header;
-                x_min = 0;
-                name_x = "x=левая "+ header;
-                name_z = "x=правая "+ header;
-                z_min = 0;
-                x_max = IClass.r;
-                z_max = IClass.r;            
-            }
-            public bool Показать(System.Action<Vector3> fun = null)
-            {
-                var b = false;
-                var v = _v;
-                st2305161246.Class.fun230516124600(() =>
-                {
-                    var x = (int)v.x;
-                    var z = (int)v.y;
-                    GUILayout.BeginVertical();
-                    var X = st2305141354.Class.fun230514135400_slider_int(ref x, name_x, x_min, x_max);
-                    var Z = st2305141354.Class.fun230514135400_slider_int(ref z, name_z, z_min, z_max);
-                    GUILayout.EndVertical();
-                    if (X || Z)
-                    {
-                        v = new Vector3(x, z);
-                        b = true;
-                        return;
-                    }
-                    b = false;
-                }, header, ref Развернуть);
-                if (b)
-                {
-                    _v = v;
-                    fun?.Invoke(v);
-                }
-                return b;
-            }
-        }
+        cs2307071119_ВекторПаралепипеда.IClass D = new cs2307071119_ВекторПаралепипеда.Class("ДЛИННА");
+        cs2307071119_ВекторПаралепипеда.IClass W = new cs2307071119_ВекторПаралепипеда.Class("ШИРИНА");
+        cs2307071130_ВысотаПаралепипеда.IClass _H = new cs2307071130_ВысотаПаралепипеда.Class(); public cs2307071130_ВысотаПаралепипеда.IClass H => _H;
         static public string INFO = "INFO";
-        int h = 1;
         public Class()
         {
             ИзменитьНастройки.Add("ПоУмолчанию", () => {
@@ -77,7 +28,7 @@ namespace LIB.cs2306271146_РедакторПаралепипеда
                 D.Правая = 0;
                 W.Левая = 0;
                 W.Правая = 0;
-                h = 1;
+                H.Высота = 1;
             });
             //ИзменитьНастройки.Add("left", () => { v0 = Vector3.zero; hlw.x = 0.5f * R; hlw.y = R; hlw.z = R; });
             //ИзменитьНастройки.Add("right", () => { v0 = 0.5f * R * Vector3.right; hlw.x = 0.5f * R; hlw.y = R; hlw.z = R; });
@@ -107,14 +58,14 @@ namespace LIB.cs2306271146_РедакторПаралепипеда
         {
             if (v.x > IClass.R - D.Правая || v.x < D.Левая) return false;
             if (v.z > IClass.R - W.Правая || v.z < W.Левая) return false;
-            if (v.y > h + 1) return false;
+            if (v.y > H.Высота + 1) return false;
             return true;
         }
         public bool ИнтерфейсПоУмолчанию()
         {
             GUILayout.BeginVertical();
             var b0 = ПоказатьИзменитьНастройки();
-            var b1 = st2305141354.Class.fun230514135400_slider_int(ref h, "Высота", 1, cs2307061242_СловарныйЧанк.IClass.ГраничныйРазмерЧанка);
+            var b1 = H.Показать();
             var b2 = D.Показать();
             var b3 = W.Показать();
             GUILayout.EndVertical();

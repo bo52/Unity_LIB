@@ -1,23 +1,24 @@
 ﻿//empty
 //empty
 //empty
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-
-namespace LIB.go2306252014
+using System.IO;
+using System.Linq;
+namespace LIB.go2307071335
 {
     public interface IInspector : go2305081120.IInspector
     {
         new IScene СЦЕНА { get; }
-        static public cs2307051626_ЗЕМЛЯ.IClass ЗЕМЛЯ = new cs2307051626_ЗЕМЛЯ.Class();
     }
-    /// <summary>
-    /// Список Миров
-    /// </summary>
     public class Inspector : go2305081120.Inspector, IInspector
     {
         new public IScene СЦЕНА => объектСЦЕНА as IScene;
-        public Inspector()
+        override public bool Выполнить()
         {
+            return base.Выполнить();
         }
     }
 }
