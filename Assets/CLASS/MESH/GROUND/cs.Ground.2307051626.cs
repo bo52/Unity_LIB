@@ -15,6 +15,8 @@ namespace LIB.cs2307051626_ЗЕМЛЯ
     public interface IClass : cs2307051313_Словарь_Ulong.IClass
     {
         static public byte РадиусВидимости = 3;
+        void ДобавитьЧанк(Vector2Int v, int h);
+        int Высота(Vector2 v);
     }
     /// <summary>
     ///
@@ -26,25 +28,25 @@ namespace LIB.cs2307051626_ЗЕМЛЯ
         {
             Генерация();
         }
-        public int ВысотаЧанка(Vector2 v)
+        public int Высота(Vector2 v)
         {
-            var obj = Найти<cs2307071139_ЧанкЗемли.IClass>(v);
-            return obj == null ? 0 : obj.РедакторПаралепипеда.H.Высота;
+            var obj = Найти2<cs2307071139_ЧанкЗемли.IClass>(v);
+            return obj == null ? 0 : obj.Высота;
         }
         public void Генерация()
         {
-            this.Clear();
-            for (var z = -IClass.РадиусВидимости; z <= IClass.РадиусВидимости; z++)
-                for (var x = -IClass.РадиусВидимости; x <= IClass.РадиусВидимости; x++)
-                {
-                    this.ДобавитьЧанк(new Vector2Int(x, z));
-                }
+            var ВычислениеВысоты = new cs2306262206_ВычислитьВысоту.Class(this);
+            Выполнить();
         }
-        public void ДобавитьЧанк(Vector2Int v)
+        public void Выполнить()
         {
-            var obj = new cs2307071139_ЧанкЗемли.Class(v);
-            this.Добавить(v, obj);
-            obj.Выполнить();
+            foreach (var obj in this)
+                obj.Value.Выполнить();
+        }
+        public void ДобавитьЧанк(Vector2Int v, int h)
+        {
+            var obj = new cs2307071139_ЧанкЗемли.Class(this,v, h);
+            this.Добавить2(v, obj);
         }
     }
 }

@@ -15,7 +15,8 @@ namespace LIB.cs2307061154_ЦветнойБлок
     public interface IClass
     {
         static Color32 Green = new Color32(211, 151, 0, 255);
-        public Color32 Цвет { get; set; }
+        Color32 Цвет { get; set; }
+        cs2307081134_Координата3.Class Координата { get; }
     }
     /// <summary>
     ///
@@ -23,13 +24,22 @@ namespace LIB.cs2307061154_ЦветнойБлок
     public class Class : IClass
     {
         static public string INFO = "INFO";
+        #region КООРДИНАТА
+        private cs2307081134_Координата3.Class _v; 
+        public cs2307081134_Координата3.Class Координата => _v;
+        #endregion
         private Color32 _c = IClass.Green; public Color32 Цвет { get => _c; set => _c = value; }
-        public Class()
+        public Class(cs2307081134_Координата3.Class v)
         {
-
+            _v = v;
         }
-        public Class(Color32 c)
+        public Class(Vector3 v)
         {
+            _v = new cs2307081134_Координата3.Class(v);
+        }
+        public Class(cs2307081134_Координата3.Class v,Color32 c)
+        {
+            _v = v;
             this._c = c;
         }
     }

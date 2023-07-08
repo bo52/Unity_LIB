@@ -16,16 +16,23 @@ namespace LIB.cs2307051205_ЦветнойКодБлока
     /// <summary>
     /// БЛОК (цвет и код)
     /// </summary>
-    public class Class: cs2307061154_ЦветнойБлок.Class, IClass
+    public class Class : cs2307061154_ЦветнойБлок.Class, IClass
     {
         static new public string INFO = "INFO";
-        private byte _code; public byte КОД { get => _code; set => _code = value; }
+        #region КОД
+        private byte _code; 
+        public byte КОД { get => _code; set => _code = value; }
+        #endregion
         public Color32 c;
-        public Class(byte КОД, Color32 c):base(c)
+        public Class(byte КОД, cs2307081134_Координата3.Class v, Color32 c) : base(v, c)
         {
             this.КОД = КОД;
         }
-        public Class(byte КОД) : base()
+        public Class(byte КОД,Vector3 v) : base(v)
+        {
+            this.КОД = КОД;
+        }
+        public Class(byte КОД, cs2307081134_Координата3.Class v) : base(v)
         {
             this.КОД = КОД;
         }

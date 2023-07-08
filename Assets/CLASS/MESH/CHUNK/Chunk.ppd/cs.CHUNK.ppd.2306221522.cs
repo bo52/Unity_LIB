@@ -20,9 +20,10 @@ namespace LIB.cs2306221522_ЧанкПаралепипеда
         static new public string INFO = "INFO";
         public override string ИмяКнопки => "ПостроитьЧанкПаралепипед";
         #region ПараметрыКласса
-        private cs2306271146_РедакторПаралепипеда.IClass _editor = new cs2306271146_РедакторПаралепипеда.Class(); public cs2306271146_РедакторПаралепипеда.IClass РедакторПаралепипеда { get => _editor; }
+        private cs2306271146_РедакторПаралепипеда.IClass _editor = new cs2306271146_РедакторПаралепипеда.Class(); 
+        public cs2306271146_РедакторПаралепипеда.IClass РедакторПаралепипеда { get => _editor; }
         public override string ИмяИгровогоОбъекта => "ЧанкПаралепипед";
-        public Class() : base()
+        public Class(int h) : base(h)
         {
         }
         #endregion
@@ -32,6 +33,6 @@ namespace LIB.cs2306221522_ЧанкПаралепипеда
             return base.ИнтерфейсПоУмолчанию();
         }
 
-        public override bool СуществуетВершина(Vector3 v) => РедакторПаралепипеда.СуществуетВершина(v);
+        public override bool СуществуетВершина(Vector3 v, object arg) => РедакторПаралепипеда.СуществуетВершина(v);
     }
 }

@@ -21,11 +21,14 @@ namespace LIB.st2306241300
         /// <summary>
         ///
         /// </summary>
-        static public void fun230624130000_НоваяТрехМернаяАльфаТекстура(int MAX = 8192)
+        static public void fun230624130000_НоваяТрехМернаяАльфаТекстура(int MAX = 8)
         {
-            var tex = new Texture3D(512, 512, 512, TextureFormat.Alpha8, false);
+            var tex = new Texture3D(MAX, MAX, MAX, TextureFormat.Alpha8, false);
+            tex.filterMode = FilterMode.Point;
             //fun230624130002_ЗаполнениеТекстуры(tex);
             fun230624130003_SaveTextureToFile(tex, field230624130001_file_test);
+            //открыть папку
+            st2306261354.Class.fun230626135400_ОткрытьФайл(Path.GetFullPath(field230624130001_file_test));
         }
         /// <summary>
         /// 

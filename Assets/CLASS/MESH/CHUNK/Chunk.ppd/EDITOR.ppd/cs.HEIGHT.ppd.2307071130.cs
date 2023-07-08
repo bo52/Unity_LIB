@@ -24,6 +24,6 @@ namespace LIB.cs2307071130_ВысотаПаралепипеда
     {
         static public string INFO = "INFO";
         private int _h = 1; public int Высота { get => _h; set => _h = value; }
-        public bool Показать(System.Action<Vector3> fun = null) => st2305141354.Class.fun230514135400_slider_int(ref _h, "Высота", 1, cs2307061242_СловарныйЧанк.IClass.ГраничныйРазмерЧанка);
+        public bool Показать(System.Action<Vector3> fun = null) => st2305141354.Class.fun230514135400_slider_int(ref _h, "Высота", 1, cs2307071139_ЧанкЗемли.IClass.MAXВысотаЧанка);
     }
 }

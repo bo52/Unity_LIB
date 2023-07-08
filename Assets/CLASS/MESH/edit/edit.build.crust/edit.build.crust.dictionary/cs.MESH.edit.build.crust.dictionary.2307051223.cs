@@ -26,7 +26,7 @@ namespace LIB.cs2307051223_ПостроитьЧанкиКорыОбъекта
         #endregion
         public virtual void ЗакрытьРедактор(cs2307031649.IClass edit, ulong number)
         {
-            edit.КоординатаЧанка = КораОбъекта.ПолучитьВектор(number);
+            edit.КоординатаЧанка = КораОбъекта.ПолучитьВектор3(number);
             base.ЗакрытьРедактор(edit);
         }
         public virtual void ПостроитьКоруОбъекта()

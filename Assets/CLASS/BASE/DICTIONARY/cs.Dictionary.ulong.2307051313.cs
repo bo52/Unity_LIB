@@ -11,17 +11,27 @@ namespace LIB.cs2307051313_Словарь_Ulong
     /// </summary>
     public interface IClass : IDictionary
     {
-        public t Найти<t>(Vector2 v) where t : class;
-        void Добавить(Vector3 v, object obj);
-        void Добавить(Vector2 v, object obj);
-        void Добавить<T>(Vector3 v, T obj) where T : class;
-        Vector3 ПолучитьВектор(ulong id);
-        Vector2 ПолучитьВЕКТОР(ulong id);
-        ulong ПолучитьНомер(Vector3 v);
-        void Обойти<T>(System.Func<Vector3, T, bool> Выполнить) where T : class;
+        #region Добавить2
+        Vector2 ПолучитьВектор2(ulong id);
+        public t Найти2<t>(Vector2 v) where t : class;
+        void Добавить2(Vector2 v, object obj);
+        #endregion
+        #region Добавить3
+        bool Существует3(Vector3 v);
+        void Добавить3(Vector3 v, object obj);
+        void Добавить3<t>(Vector3 v, t obj) where t : class;
+        void Добавить3<t>(ulong id, t obj) where t : class;
+        ulong ПолучитьНомер3(Vector3 v);
+        Vector3 ПолучитьВектор3(ulong id);
+        #endregion
+        #region обойти
+        void Обойти<t>(System.Func<t, bool> Выполнить) where t : class;
+        void Обойти<t>(System.Func<Vector3, t, bool> Выполнить) where t : class;
         void Обойти(System.Func<ulong, object, bool> Выполнить);
         void Обойти(System.Func<Vector3, object, bool> Выполнить);
+        #endregion
         void Очистить();
+        public bool Существует(ulong id);
     }
     /// <summary>
     ///
@@ -29,35 +39,47 @@ namespace LIB.cs2307051313_Словарь_Ulong
     public class Class<T> : Dictionary<ulong, T>, IClass where T:class
     {
         static public string INFO = "INFO";
-        #region ФункцииКласса
-        public t Найти<t>(Vector2 v) where t : class
+        public void Очистить() => this.Clear();
+        #region Добавить2
+        public t Найти2<t>(Vector2 v) where t : class
         {
-            var code = ПолучитьНомер(v);
+            var code = ПолучитьНомер2(v);
             return this.ContainsKey(code) ? this[code] as t : null;
         }
-        public void Очистить() => this.Clear();
-        public virtual void Добавить(Vector3 v, object obj) => this.Add(ПолучитьНомер(v), (T)obj);
-        public virtual void Добавить(Vector2 v, object obj) => this.Add(ПолучитьНомер(v), (T)obj);
-        public virtual void Добавить<t>(Vector3 v, t obj) where t:class => this.Add(ПолучитьНомер(v), obj as T);
-        public Vector3 ПолучитьВектор(ulong id) => st2305211702.Class.fun230521170204_ПолучитьВектор(id);
-        public Vector2 ПолучитьВЕКТОР(ulong id) => st2305211702.Class.fun230521170207_ПолучитьВектор(id);
-        public ulong ПолучитьНомер(Vector3 v) => st2305211702.Class.fun230521170203_ПолучитьНомер(v);
-        public ulong ПолучитьНомер(Vector2 v) => st2305211702.Class.fun230521170206_ПолучитьНомер(v);
+        public ulong ПолучитьНомер2(Vector2 v) => st2305211702.Class.fun230521170206_ПолучитьНомер(v);
+        public Vector2 ПолучитьВектор2(ulong id) => st2305211702.Class.fun230521170207_ПолучитьВектор(id);
+        public virtual void Добавить2(Vector2 v, object obj) => this.Add(ПолучитьНомер2(v), (T)obj);
+        #endregion
+        #region Добавить3
+        public bool Существует3(Vector3 v) => this.ContainsKey(ПолучитьНомер3(v));
+        public ulong ПолучитьНомер3(Vector3 v) => st2305211702.Class.fun230521170203_ПолучитьНомер(v);
+        public Vector3 ПолучитьВектор3(ulong id) => st2305211702.Class.fun230521170204_ПолучитьВектор(id);
+        public virtual void Добавить3<t>(ulong id, t obj) where t : class => this.Add(id, obj as T);
+        public virtual void Добавить3<t>(Vector3 v, t obj) where t:class => Добавить3(ПолучитьНомер3(v), obj);
+        public virtual void Добавить3(Vector3 v, object obj) => this.Add(ПолучитьНомер3(v), (T)obj);
+        #endregion
+        #region обойти
         public void Обойти(System.Func<ulong, object, bool> Выполнить)
         {
             foreach (var val in this)
                 if (!Выполнить(val.Key, val.Value)) return;
         }
+        public void Обойти<t>(System.Func<t, bool> Выполнить) where t : class
+        {
+            foreach (var val in this)
+                if (!Выполнить(val.Value as t)) return;
+        }
         public void Обойти(System.Func<Vector3, object, bool> Выполнить)
         {
             foreach (var val in this)
-                if (!Выполнить(ПолучитьВектор(val.Key), val.Value)) return;
+                if (!Выполнить(ПолучитьВектор3(val.Key), val.Value)) return;
         }
         public void Обойти<t>(System.Func<Vector3, t, bool> Выполнить) where t : class
         {
             foreach (var val in this)
-                if (!Выполнить(ПолучитьВектор(val.Key), val.Value as t)) return;
+                if (!Выполнить(ПолучитьВектор3(val.Key), val.Value as t)) return;
         }
         #endregion
+        public bool Существует(ulong id) => this.ContainsKey(id);
     }
 }
