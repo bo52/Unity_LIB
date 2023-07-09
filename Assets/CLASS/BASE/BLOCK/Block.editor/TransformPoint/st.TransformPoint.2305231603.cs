@@ -9,9 +9,9 @@ namespace LIB.st2305231603
     /// stTransformPoint
     /// </summary>
     static public class Class
-        {
-            static public string INFO = "INSPECTOR";
-            static public string PRODUCT = "инспектор по управлению точек Блоков";
+    {
+        static public string INFO = "INSPECTOR";
+        static public string PRODUCT = "инспектор по управлению точек Блоков";
         /// <summary>
         /// управляющий элемент
         /// handleTransform
@@ -38,27 +38,27 @@ namespace LIB.st2305231603
         /// moveVertexPoint
         /// </summary>
         static public bool field230523160305 = true;
-            /// <summary>
-            /// ОбновитьУправляющийЭлемент
-            /// </summary>
-            /// <param name="go"></param>
-            static public void fun230523160306(this GameObject go)
-            {
+        /// <summary>
+        /// ОбновитьУправляющийЭлемент
+        /// </summary>
+        /// <param name="go"></param>
+        static public void fun230523160306(this GameObject go)
+        {
             field230523160300 = go.transform;
             field230523160301 = Tools.pivotRotation == PivotRotation.Local ? field230523160300.rotation : Quaternion.identity;
-            }
-            /// <summary>
-            /// ПоказатьТочку
-            /// </summary>
-            /// <param name="Блок"></param>
-            /// <param name="v"></param>
-            /// <returns></returns>
-            static public bool fun230523160307(this IBlock8_vs Блок, Vector3 v)
-            {
-                Handles.color = Блок.СуществуетВершина(v) ? Color.yellow : Color.grey;
-                //go.transform.position
-                Vector3 point = field230523160300.TransformPoint(spBuild.Block.Int_ins.КоординатаБлока + LIB.cs2305181649.IClass.Дельта/*spBuild.IVertices.Дельта*/*v - 0.5f * Vector3.one);
-                return Handles.Button(point, field230523160301, 2.5f * field230523160304, field230523160304, Handles.SphereHandleCap);
-            }
         }
+        /// <summary>
+        /// ПоказатьТочку
+        /// </summary>
+        /// <param name="Блок"></param>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        static public bool fun230523160307(this bool СуществуетВершина, Vector3 v, Vector3 Координата = default, float Дельта = 1)
+        {
+            Handles.color = СуществуетВершина ? Color.yellow : Color.grey;
+            //go.transform.position
+            Vector3 point = field230523160300.TransformPoint(Координата + Дельта * v - 0.5f * Vector3.one);
+            return Handles.Button(point, field230523160301, 2.5f * field230523160304, field230523160304, Handles.SphereHandleCap);
+        }
+    }
 }

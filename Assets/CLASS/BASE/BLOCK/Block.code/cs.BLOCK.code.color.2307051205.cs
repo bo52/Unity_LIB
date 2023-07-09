@@ -1,12 +1,7 @@
 ﻿//empty
 //empty
 //empty
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using System.IO;
-using System.Linq;
 namespace LIB.cs2307051205_ЦветнойКодБлока
 {
     public interface IClass : cs2307061154_ЦветнойБлок.IClass
@@ -24,7 +19,7 @@ namespace LIB.cs2307051205_ЦветнойКодБлока
         public byte КОД { get => _code; set => _code = value; }
         #endregion
         public Color32 c;
-        public Class(byte КОД, cs2307081134_Координата3.Class v, Color32 c) : base(v, c)
+        public Class(byte КОД, cs2307081134_Координата3.Struct v, Color32 c) : base(v, c)
         {
             this.КОД = КОД;
         }
@@ -32,7 +27,7 @@ namespace LIB.cs2307051205_ЦветнойКодБлока
         {
             this.КОД = КОД;
         }
-        public Class(byte КОД, cs2307081134_Координата3.Class v) : base(v)
+        public Class(byte КОД, cs2307081134_Координата3.Struct v) : base(v)
         {
             this.КОД = КОД;
         }

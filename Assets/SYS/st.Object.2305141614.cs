@@ -63,7 +63,7 @@ namespace LIB.st2305141614
         static public cs2305161108.Mono fun230514161406_СоздатьОбъектСМоно(uint number, GameObject p = null)
         {
             var go = new GameObject();
-            go.transform.SetParent(p == null ? st2306251639.Class.prop230625163901_ОбъектКореньМира.transform : p.transform);
+            go.transform.SetParent(p == null ? st2306251639_ROOT.Class.prop230625163901_ОбъектКореньМира.transform : p.transform);
             return fun230514161407_ПривязатьМоноКОбъекту(go, number);
         }
         /// <summary>

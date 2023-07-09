@@ -9,38 +9,81 @@ using System.IO;
 using System.Linq;
 namespace LIB.cs2307081134_Координата3
 {
+    public interface IClass
+    {
+        Struct Координата { get; }
+    }
+    public class Class
+    {
+        #region КООРДИНАТА
+        private Struct _v;
+        public Struct Координата => _v;
+        #endregion
+        public Class(Struct v)
+        {
+            _v = v;
+        }
+        public Class(Vector3 v)
+        {
+            _v = new Struct(v);
+        }
+    }
     /// <summary>
     ///
     /// </summary>
-    public struct Class
+    public struct Struct
     {
         static public string INFO = "INFO";
         static Vector3[] Соседи = new Vector3[]
         {
-            new Vector3(-1,-1,-1),new Vector3(0,-1,-1),new Vector3(1,-1,-1),new Vector3(-1,-1,0),new Vector3(0,-1,0),new Vector3(1,-1,0),new Vector3(-1,-1,1),new Vector3(0,-1,1),new Vector3(1,-1,1),
-            new Vector3(-1,0,-1),new Vector3(0,0,-1),new Vector3(1,0,-1),new Vector3(-1,0,0),new Vector3(1,0,0),new Vector3(-1,0,1),new Vector3(0,0,1),new Vector3(1,0,1),
-            new Vector3(-1,1,-1),new Vector3(0,1,-1),new Vector3(1,1,-1),new Vector3(-1,1,0),new Vector3(0,1,0),new Vector3(1,1,0),new Vector3(-1,1,1),new Vector3(0,1,1),new Vector3(1,1,1),
+            new Vector3(-1,-1,-1),
+            new Vector3(0,-1,-1),
+            new Vector3(1,-1,-1),
+            new Vector3(-1,-1,0),
+            new Vector3(0,-1,0),
+            new Vector3(1,-1,0),
+            new Vector3(-1,-1,1),
+            new Vector3(0,-1,1),
+            new Vector3(1,-1,1),
+            new Vector3(-1,0,-1),
+            new Vector3(0,0,-1),
+            new Vector3(1,0,-1),
+            new Vector3(-1,0,0),
+            new Vector3(1,0,0),
+            new Vector3(-1,0,1),
+            new Vector3(0,0,1),
+            new Vector3(1,0,1),
+            new Vector3(-1,1,-1),
+            new Vector3(0,1,-1),
+            new Vector3(1,1,-1),
+            new Vector3(-1,1,0),
+            new Vector3(0,1,0),
+            new Vector3(1,1,0),
+            new Vector3(-1,1,1),
+            new Vector3(0,1,1),
+            new Vector3(1,1,1),
         };
         public Vector3 v;
         public ulong id;
-        public Class(Vector3 v, ulong id)
+        public Struct(Vector3 v, ulong id)
         {
             this.v = v;
             this.id = id;
         }
-        public Class(Vector3 v)
+        public Struct(Vector3 v)
         {
             this.v = v;
-            this.id = st2305211702.Class.fun230521170203_ПолучитьНомер(v);
+            this.id = st2305211702.Class.fun230521170203_ПолучитьНомер3(v);
         }
-        public Class Сосед(Vector3 dv) => new Class(v + dv);
+        public Vector2 Вектор2_безВысоты => new Vector2(v.x, v.z);
+        public Struct Сосед(Vector3 dv) => new Struct(v + dv);
         #region Обработка
-        static public void ОбработкаКоординаты(Vector3 v, List<ulong> Проверен, System.Func<Class, bool> ФункцияГраницы)
+        static public void ОбработкаКоординаты(Vector3 v, List<ulong> Проверен, System.Func<Struct, bool> ФункцияГраницы)
         {
-            var Координата = new Class(v);
+            var Координата = new Struct(v);
             ОбработкаКоординаты(Координата, Проверен, ФункцияГраницы);
         }
-        static public void ОбработкаКоординаты(Class Координата, List<ulong> Проверен, System.Func<Class, bool> ФункцияГраницы)
+        static public void ОбработкаКоординаты(Struct Координата, List<ulong> Проверен, System.Func<Struct, bool> ФункцияГраницы)
         {
             if (Проверен.IndexOf(Координата.id) != -1) return;
             //не проверен

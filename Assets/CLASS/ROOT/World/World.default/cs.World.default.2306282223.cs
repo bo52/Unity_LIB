@@ -30,7 +30,7 @@ namespace LIB.cs2306282223
         public void СоздатьНачалоСуществованияМира()
         {
             Vector3 v;
-            st2306251639.Class.fun230625163903_ОчиститьКореньМира();
+            st2306251639_ROOT.Class.fun230625163903_ОчиститьКореньМира();
             ПостроитьСЗакрытием(null);
             for (var z = 0; z <= Work_R; z++)
                 for (var x = -Work_R; x <= Work_R; x++)
@@ -42,7 +42,7 @@ namespace LIB.cs2306282223
         public void НовыйОбъект(Vector3 v)
         {
             var go = new GameObject();
-            go.transform.parent = st2306251639.Class.prop230625163901_ОбъектКореньМира.transform;
+            go.transform.parent = st2306251639_ROOT.Class.prop230625163901_ОбъектКореньМира.transform;
             go.name = "chunk." + v.x + "." + v.y + "." + v.z;
             go.transform.position = v;
             ПривязатьМеш(go);

@@ -1,12 +1,8 @@
 ﻿//empty
 //empty
 //empty
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using System.IO;
-namespace LIB.st2306251639
+namespace LIB.st2306251639_ROOT
 {
     /// <summary>
     /// Корень МИРА
@@ -39,10 +35,10 @@ namespace LIB.st2306251639
         /// <summary>
         /// 
         /// </summary>
-        static public GameObject prop230625163904_НовыйОбъектВКорнеМира(string name = "empty")
+        static public GameObject prop230625163904_НовыйОбъектВКорнеМира(string name = "empty",GameObject Родитель=null)
         {
             GameObject go = new GameObject();
-            go.transform.SetParent(prop230625163901_ОбъектКореньМира.transform);
+            go.transform.SetParent(Родитель == null?prop230625163901_ОбъектКореньМира.transform: Родитель.transform);
             go.name = name;
             return go;
         }

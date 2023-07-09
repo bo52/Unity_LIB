@@ -29,7 +29,7 @@ namespace LIB.cs2307071139_ЧанкЗемли
 
         private Vector2Int _v; 
         public Vector2Int Координата => _v;
-        private ulong ПолучитьНомер(Vector2 v) => st2305211702.Class.fun230521170203_ПолучитьНомер(v);
+        private ulong ПолучитьНомер(Vector2 v) => st2305211702.Class.fun230521170203_ПолучитьНомер3(v);
         public virtual Vector3 ВычисляемыеКоординаты => IClass.ДлинаЧанкаЗемли * new Vector3(_v.x, 0, _v.y) + IClass.MAXВысотаЧанка * Высота * Vector3.up;
         #region Высота
         private int _h = 1; 
