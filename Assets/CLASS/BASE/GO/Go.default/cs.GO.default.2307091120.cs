@@ -11,18 +11,18 @@ namespace LIB.cs2307091120_ИгровойОбъект
     {
         GameObject ИгровойОбъект { get; }
         GameObject НовыйИгровойОбъект { get; }
-        cs2307091136_GO_file.IClass РаботаСФайлом { get; }
+        cs2307091136_ИгровойОбъектФайл.IClass РаботаСФайлом { get; }
     }
     /// <summary>
     ///
     /// </summary>
-    public class Class<TFILE> : cs2307031414_Default.Class, IClass where TFILE : cs2307091136_GO_file.Class, new()
+    public class Class<TFILE> : cs2307031414_Default.Class, IClass where TFILE : cs2307091136_ИгровойОбъектФайл.Class, new()
     {
         static new public string INFO = "INFO";
         public virtual string ИмяИгровогоОбъекта => "empty";
         private GameObject _go;
         private GameObject _parent = null;
-        private cs2307091136_GO_file.IClass _file; public cs2307091136_GO_file.IClass РаботаСФайлом => _file;
+        private cs2307091136_ИгровойОбъектФайл.IClass _file; public cs2307091136_ИгровойОбъектФайл.IClass РаботаСФайлом => _file;
         public Class()
         {
         }

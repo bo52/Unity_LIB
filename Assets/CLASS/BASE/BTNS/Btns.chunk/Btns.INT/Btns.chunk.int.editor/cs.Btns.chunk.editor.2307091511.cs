@@ -2,7 +2,7 @@
 //empty
 //empty
 using UnityEngine;
-namespace LIB.cs2307091511
+namespace LIB.cs2307091511_РедакторБлоков
 {
     /// <summary>
     ///

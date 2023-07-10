@@ -7,7 +7,7 @@ namespace LIB.cs2306271146_РедакторПаралепипеда
 {
     public interface IClass
     {
-        public static int R = cs2307061242_СловарныйЧанк.IClass.РазмерЧанка;
+        public static int R = cs2307061242_Чанк_Интерфейс.IClass.РазмерЧанка;
         bool СуществуетВершина(Vector3 v);
         bool ИнтерфейсПоУмолчанию();
         cs2307071130_ВысотаПаралепипеда.IClass H { get; }

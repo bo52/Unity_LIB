@@ -17,7 +17,8 @@ namespace LIB.cs2305071643_Chunk_default
     /// <summary>
     /// универсальный класс по получению информации
     /// </summary>
-    public abstract class Class<TFILE> : cs2307031414_Default.Class, IClass where TFILE : cs2307091136_GO_file.Class, new()
+    public abstract class Class<TFILE> : cs2307031414_Default.Class, IClass 
+        where TFILE : cs2307091136_ИгровойОбъектФайл.Class, new()
     {
         #region Кнопка
         public override string ИмяКнопки => "ПостроитьСЗакрытием";

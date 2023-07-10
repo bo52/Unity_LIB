@@ -2,7 +2,7 @@
 //empty
 //empty
 using UnityEngine;
-namespace LIB.cs2307091136_GO_file
+namespace LIB.cs2307091136_ИгровойОбъектФайл
 {
     /// <summary>
     ///

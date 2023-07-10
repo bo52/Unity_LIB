@@ -2,52 +2,39 @@
 //empty
 //empty
 using UnityEngine;
-namespace LIB.cs2307061242_СловарныйЧанк
+namespace LIB.cs2307061242_Чанк_Интерфейс
 {
-    public interface IClass: cs2307031414_Default.IClass
+    public interface IClass<TFILE, TMESH, TEDIT, TBtns> : cs2307031414_Default.IClass
+        where TFILE : cs2307091136_ИгровойОбъектФайл.Class, new()
+        where TMESH : cs2307061139_СозданиеМеша.Class<TFILE>, new()
+        where TEDIT : cs2307091511_РедакторБлоков.Class, new()
+        where TBtns : cs2307061149_БлокиЧанка_Интерфейс.Class<TFILE, TMESH, TEDIT>, new()
     {
         int РазмерЧанка { get; }
-        cs2307061149_БлокиЧанка.IClass БлокиЧанка { get; }
+        TBtns БлокиЧанка_Интерфейс { get; } 
     }
     /// <summary>
     ///
     /// </summary>
-    public interface IClass<TCHUNK_crust> : IClass
-    {
-        TCHUNK_crust КораЧанка { get; }
-    }
-    /// <summary>
-    ///
-    /// </summary>
-    public abstract class Class<TFILE, TCHUNK_crust> : cs2307031414_Default.Class, IClass<TCHUNK_crust>
-        where TFILE : cs2307091136_GO_file.Class, new()
-        where TCHUNK_crust : cs2307061139_КораЧанка.Class<TFILE>, new()
+    public abstract class Class<TFILE, TMESH, TEDIT, TBtns> : cs2307031414_Default.Class, IClass<TFILE, TMESH, TEDIT, TBtns>
+        where TFILE : cs2307091136_ИгровойОбъектФайл.Class, new()
+        where TMESH : cs2307061139_СозданиеМеша.Class<TFILE>, new()
+        where TEDIT : cs2307091511_РедакторБлоков.Class, new()
+        where TBtns : cs2307061149_БлокиЧанка_Интерфейс.Class<TFILE, TMESH, TEDIT>, new()
     {
         static new public string INFO = "INFO";
-        /// <summary>
-        /// РазмерЧанка
-        /// </summary>
+        #region Размер
         public int РазмерЧанка => 32;
         public int ГраничныйРазмерЧанка => РазмерЧанка - 2;
-        public int ПоловинаРазмераЧанка => (int)(РазмерЧанка/2.0f) - 1;
-        #region Блоки
-        public cs2307061149_БлокиЧанка.IClass _btns;
-        public cs2307061149_БлокиЧанка.IClass БлокиЧанка => _btns;
+        public int ПоловинаРазмераЧанка => (int)(РазмерЧанка / 2.0f) - 1;
         #endregion
-        #region КораЧанка
-        private TCHUNK_crust _crust;
-        public TCHUNK_crust КораЧанка => _crust;
+        #region Блоки
+        public TBtns _btns;
+        public TBtns БлокиЧанка_Интерфейс => _btns;
         #endregion
         public Class() : base()
         {
-            _btns = СоздатьЭкземпляр<cs2307061149_БлокиЧанка.Class>(this);
-            _crust = СоздатьЭкземпляр<TCHUNK_crust>(this);
-        }
-        public override bool СценаПоУмолчанию()
-        {
-            if (_btns.РедакторБлоков.СценаПоУмолчанию())
-                _crust.ПостроитьСЗакрытием();
-            return false;
+            _btns = СоздатьЭкземпляр<TBtns>(this);
         }
     }
 }

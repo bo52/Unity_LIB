@@ -8,14 +8,14 @@ namespace LIB.cs2306221522_ЧанкПаралепипеда
     /// <summary>
     ///
     /// </summary>
-    public interface IClass : cs2307061242_СловарныйЧанк.IClass
+    public interface IClass : cs2307061242_Чанк_Интерфейс.IClass
     {
         cs2306271146_РедакторПаралепипеда.IClass РедакторПаралепипеда { get; }
     }
     /// <summary>
     /// рекурсивный куб с координатой
     /// </summary>
-    public class Class : cs2307061242_СловарныйЧанк.Class, IClass
+    public class Class : cs2307061242_Чанк_Интерфейс.Class, IClass
     {
         static new public string INFO = "INFO";
         public override string ИмяКнопки => "ПостроитьЧанкПаралепипед";

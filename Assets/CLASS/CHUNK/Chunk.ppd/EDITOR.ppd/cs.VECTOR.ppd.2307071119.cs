@@ -14,7 +14,7 @@ namespace LIB.cs2307071119_ВекторПаралепипеда
     /// </summary>
     public interface IClass
     {
-        public static int R = cs2307061242_СловарныйЧанк.IClass.РазмерЧанка;
+        public static int R = cs2307061242_Чанк_Интерфейс.IClass.РазмерЧанка;
         public static int r = (int)(0.5f * R - 1);
         int Левая { get; set; }
         int Правая { get; set; }

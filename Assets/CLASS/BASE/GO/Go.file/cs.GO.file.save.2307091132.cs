@@ -16,9 +16,9 @@ namespace LIB.cs2307091132_GO_file_save
     public class Class : cs2307031414_Default.Class, IClass
     {
         static new public string INFO = "INFO";
-        private cs2307091136_GO_file.IClass РаботаСФайлом;
+        private cs2307091136_ИгровойОбъектФайл.IClass РаботаСФайлом;
         public void СохранитьЧанк() => st2305161716.Class.fun230516171606_ПереСохранитьМешОбъектаИменем(РаботаСФайлом.GO.ИгровойОбъект, РаботаСФайлом.ФайлИгровогоОбъекта);
-        public Class(cs2307091136_GO_file.IClass go)
+        public Class(cs2307091136_ИгровойОбъектФайл.IClass go)
         {
             РаботаСФайлом = go;
         }

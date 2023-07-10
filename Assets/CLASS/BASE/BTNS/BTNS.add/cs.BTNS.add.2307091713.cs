@@ -2,7 +2,7 @@
 //empty
 //empty
 using UnityEngine;
-namespace LIB.cs2307091713_КораЧанка
+namespace LIB.cs2307091713_Блоки_Добавление
 {
     /// <summary>
     ///
