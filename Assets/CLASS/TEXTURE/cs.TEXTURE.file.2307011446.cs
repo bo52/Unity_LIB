@@ -1,4 +1,4 @@
-﻿//empty
+﻿//работа с 2D ТекстураФайл
 //empty
 //empty
 using System.Collections;
