@@ -1,4 +1,4 @@
-﻿//empty
+﻿//ИгровойОбъект.Интерфейс [Сохранение]
 //empty
 //empty
 using UnityEngine;

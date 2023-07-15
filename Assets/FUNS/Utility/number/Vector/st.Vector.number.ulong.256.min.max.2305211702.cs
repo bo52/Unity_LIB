@@ -1,3 +1,4 @@
+//Вектор в Число=256
 using UnityEngine;
 namespace LIB.st2305211702
 {

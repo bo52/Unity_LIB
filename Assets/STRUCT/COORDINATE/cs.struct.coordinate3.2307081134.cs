@@ -1,4 +1,4 @@
-﻿//empty
+﻿//[структура,класс].Координата[ulong id,Vector3 v]
 //empty
 //empty
 using System.Collections;

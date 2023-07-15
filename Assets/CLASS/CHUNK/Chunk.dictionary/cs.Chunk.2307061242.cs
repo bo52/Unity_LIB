@@ -1,4 +1,4 @@
-﻿//empty
+﻿//Чанк.Интерфейс
 //empty
 //empty
 using UnityEngine;

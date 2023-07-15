@@ -1,4 +1,4 @@
-﻿//empty
+﻿//ИгровойОбъект.ФАЙЛ.Сохранить.Интерфейс
 //empty
 //empty
 namespace LIB.cs2307091132_GO_file_save

@@ -1,4 +1,4 @@
-﻿//empty
+﻿//fun.FILE.ОткрытьФайл
 //empty
 //empty
 using System.Collections;

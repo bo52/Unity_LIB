@@ -1,4 +1,4 @@
-﻿//empty
+﻿//Словарь[Координата,Код].Добавить
 //empty
 //empty
 using UnityEngine;

@@ -1,4 +1,4 @@
-﻿//empty
+﻿//Блок.КОД наследует ЦВЕТ и Координату
 //empty
 //empty
 using UnityEngine;

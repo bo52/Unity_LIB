@@ -1,4 +1,4 @@
-﻿//empty
+﻿//ИгровойОбъект.Интерфейс [Создание,РаботаСФайлом]
 //empty
 //empty
 using UnityEngine;
@@ -16,7 +16,8 @@ namespace LIB.cs2307091120_ИгровойОбъект
     /// <summary>
     ///
     /// </summary>
-    public class Class<TFILE> : cs2307031414_Default.Class, IClass where TFILE : cs2307091136_ИгровойОбъектФайл.Class, new()
+    public class Class<TFILE> : cs2307031414_Default.Class, IClass 
+        where TFILE : cs2307091136_ИгровойОбъектФайл.Class, new()
     {
         static new public string INFO = "INFO";
         public virtual string ИмяИгровогоОбъекта => "empty";

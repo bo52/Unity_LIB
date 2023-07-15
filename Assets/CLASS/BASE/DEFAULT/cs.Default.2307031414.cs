@@ -1,4 +1,4 @@
-﻿//empty
+﻿//ПоУмолчанию.Инспектор.Сцена
 //empty
 //empty
 namespace LIB.cs2307031414_Default

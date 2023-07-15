@@ -1,4 +1,4 @@
-﻿//empty
+﻿//Блок.Цвет наследует интерфейс.Координата
 //empty
 //empty
 using UnityEngine;

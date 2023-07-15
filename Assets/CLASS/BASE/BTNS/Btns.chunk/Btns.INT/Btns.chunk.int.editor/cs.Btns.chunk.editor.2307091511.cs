@@ -1,4 +1,4 @@
-﻿//empty
+﻿//показать Блоки [удаление,добавление] на Сцене
 //empty
 //empty
 using UnityEngine;
