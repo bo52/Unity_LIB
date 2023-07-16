@@ -53,7 +53,7 @@ namespace LIB.st2305231603
         /// <param name="Блок"></param>
         /// <param name="v"></param>
         /// <returns></returns>
-        static public bool fun230523160307(this bool СуществуетВершина, Vector3 v, Vector3 Координата = default, float Дельта = 1)
+        static public bool fun230523160307_PointView(this bool СуществуетВершина, Vector3 v, Vector3 Координата = default, float Дельта = 1)
         {
             Handles.color = СуществуетВершина ? Color.yellow : Color.grey;
             //go.transform.position

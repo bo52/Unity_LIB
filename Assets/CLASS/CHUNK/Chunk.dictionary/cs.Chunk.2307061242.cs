@@ -4,13 +4,16 @@
 using UnityEngine;
 namespace LIB.cs2307061242_Чанк_Интерфейс
 {
-    public interface IClass<TFILE, TMESH, TEDIT, TBtns> : cs2307031414_Default.IClass
+    public interface IClass
+    {
+        int РазмерЧанка { get; }
+    }
+    public interface IClass<TFILE, TMESH, TEDIT, TBtns> : cs2307031414_Default.IClass, IClass
         where TFILE : cs2307091136_ИгровойОбъектФайл.Class, new()
         where TMESH : cs2307061139_СозданиеМеша.Class<TFILE>, new()
         where TEDIT : cs2307091511_РедакторБлоков.Class, new()
         where TBtns : cs2307061149_БлокиЧанка_Интерфейс.Class<TFILE, TMESH, TEDIT>, new()
     {
-        int РазмерЧанка { get; }
         TBtns БлокиЧанка_Интерфейс { get; } 
     }
     /// <summary>
@@ -29,8 +32,7 @@ namespace LIB.cs2307061242_Чанк_Интерфейс
         public int ПоловинаРазмераЧанка => (int)(РазмерЧанка / 2.0f) - 1;
         #endregion
         #region Блоки
-        public TBtns _btns;
-        public TBtns БлокиЧанка_Интерфейс => _btns;
+        public TBtns _btns; public TBtns БлокиЧанка_Интерфейс => _btns;
         #endregion
         public Class() : base()
         {

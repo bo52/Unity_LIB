@@ -20,7 +20,7 @@ namespace LIB.cs2307051233_ПостроитьЧанкКорыОбъекта
     {
         static public string INFO = "INFO";
         #region ПараметрыКласса
-        private cs2307031203_ПараметрыПостройки.Class _param_build => new cs2307031203_ПараметрыПостройки.Class(ФункцияПостройки);
+        private cs2307031203_ПараметрыПостройки.Struct _param_build => new cs2307031203_ПараметрыПостройки.Struct(ФункцияПостройки);
         private GameObject _go; public GameObject GO => _go;
         public Class(GameObject go)
         {

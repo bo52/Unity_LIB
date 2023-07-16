@@ -42,7 +42,7 @@ namespace LIB.cs2305071643_Chunk_default
             _go = new cs2307091120_ИгровойОбъект.Class<TFILE>();
         }
         public virtual cs2305141208.IClass.Редактор ТипРедактора => cs2305141208.IClass.Редактор.Block;
-        private cs2307031203_ПараметрыПостройки.Class _param_build => new cs2307031203_ПараметрыПостройки.Class(ФункцияПостройки, ТипРедактора);
+        private cs2307031203_ПараметрыПостройки.Struct _param_build => new cs2307031203_ПараметрыПостройки.Struct(ФункцияПостройки, ТипРедактора);
         public abstract void ФункцияПостройки(cs2305141215.IClass edit);
     }
 }

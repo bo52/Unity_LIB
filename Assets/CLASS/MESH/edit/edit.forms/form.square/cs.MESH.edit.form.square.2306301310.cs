@@ -13,7 +13,7 @@ namespace LIB.cs2306301310
     /// </summary>
     public interface IClass: cs2305141215.IClass
     {
-        public void ADD(cs2306301359.Class Triangle, Vector3 v4);
+        public void ADD(cs2306301359.Struct Triangle, Vector3 v4);
     }
     /// <summary>
     ///
@@ -22,11 +22,11 @@ namespace LIB.cs2306301310
     {
         static public string INFO = "INFO";
         private cs2305181555.IClass ВершиныКвадрата;
-        public Class(cs2307031203_ПараметрыПостройки.Class param) : base(param)
+        public Class(cs2307031203_ПараметрыПостройки.Struct param) : base(param)
         {
             ВершиныКвадрата = new cs2305181555.Class(this);
         }
-        public void ADD(cs2306301359.Class Triangle,Vector3 v4)
+        public void ADD(cs2306301359.Struct Triangle,Vector3 v4)
         {
             ВершиныКвадрата.v1 = Triangle.v1;
             ВершиныКвадрата.v2 = Triangle.v2;

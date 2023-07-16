@@ -12,17 +12,17 @@ namespace LIB.cs2307031203_ПараметрыПостройки
     /// <summary>
     /// ПараметрыПостройки
     /// </summary>
-    public struct Class
+    public struct Struct
     {
         static public string INFO = "INFO";
         public System.Action<cs2305141215.IClass> ФункцияПостройки;
         public byte НомерРедактора;
-        public Class(System.Action<cs2305141215.IClass> ФункцияПостройки, byte НомерРедактора = 1)
+        public Struct(System.Action<cs2305141215.IClass> ФункцияПостройки, byte НомерРедактора = 1)
         {
             this.ФункцияПостройки = ФункцияПостройки;
             this.НомерРедактора = НомерРедактора;
         }
-        public Class(System.Action<cs2305141215.IClass> ФункцияПостройки, cs2305141208.IClass.Редактор Редактор)
+        public Struct(System.Action<cs2305141215.IClass> ФункцияПостройки, cs2305141208.IClass.Редактор Редактор)
         {
             this.ФункцияПостройки = ФункцияПостройки;
             this.НомерРедактора = (byte)Редактор;

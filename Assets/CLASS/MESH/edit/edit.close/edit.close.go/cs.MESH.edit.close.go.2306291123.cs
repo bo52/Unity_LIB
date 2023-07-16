@@ -18,7 +18,7 @@ namespace LIB.cs2306291123
     {
         static public string INFO = "INFO";
         private GameObject _go; public GameObject GO => _go;
-        public Class(GameObject go, cs2307031203_ПараметрыПостройки.Class param_build) : base(param_build) => this._go = go;
+        public Class(GameObject go, cs2307031203_ПараметрыПостройки.Struct param_build) : base(param_build) => this._go = go;
 
         public Mesh Привязать(GameObject go)
         {

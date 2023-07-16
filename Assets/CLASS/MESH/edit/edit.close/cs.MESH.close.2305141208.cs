@@ -18,7 +18,7 @@ namespace LIB.cs2305141208
     public class Class : IClass
     {
         private cs2305141215.IClass _editor; public cs2305141215.IClass Editor => _editor;
-        public Class(cs2307031203_ПараметрыПостройки.Class Параметры)
+        public Class(cs2307031203_ПараметрыПостройки.Struct Параметры)
         {
             switch (Параметры.НомерРедактора)
             {

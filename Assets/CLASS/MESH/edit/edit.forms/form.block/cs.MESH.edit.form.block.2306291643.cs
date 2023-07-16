@@ -21,7 +21,7 @@ namespace LIB.cs2306291643
     public class Class : cs2305141209.Class, IClass
     {
         static public string INFO = "INFO";
-        public Class(cs2307031203_ПараметрыПостройки.Class param) : base(param)
+        public Class(cs2307031203_ПараметрыПостройки.Struct param) : base(param)
         {
 
         }
@@ -67,7 +67,7 @@ namespace LIB.cs2306291643
                 v1 = ВычислениеВектора(ИндексУникальногоТреугольника, 0);
                 v2 = ВычислениеВектора(ИндексУникальногоТреугольника, 1);
                 v3 = ВычислениеВектора(ИндексУникальногоТреугольника, 2);
-                ADD(new cs2306301359.Class(v1, v2, v3));
+                ADD(new cs2306301359.Struct(v1, v2, v3));
             }
         }
     }

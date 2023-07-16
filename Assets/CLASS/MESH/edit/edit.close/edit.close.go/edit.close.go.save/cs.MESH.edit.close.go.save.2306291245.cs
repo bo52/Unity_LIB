@@ -21,7 +21,7 @@ namespace LIB.cs2306291245
     {
         static new public string INFO = "INFO";
         cs2306301504.Class Параметры;
-        public Class(cs2306301504.Class Параметры, GameObject go, cs2307031203_ПараметрыПостройки.Class param_build) : base(go, param_build)
+        public Class(cs2306301504.Class Параметры, GameObject go, cs2307031203_ПараметрыПостройки.Struct param_build) : base(go, param_build)
         {
             this.Параметры = Параметры;
         }

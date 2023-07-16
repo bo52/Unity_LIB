@@ -21,7 +21,7 @@ namespace LIB.cs2305181555
         public Class(cs2305141215.IClass edit) : base(edit)
         {
         }
-        public Class(cs2305141215.IClass edit, cs2306301359.Class Triangle, Vector3 v4) : base(edit, Triangle)
+        public Class(cs2305141215.IClass edit, cs2306301359.Struct Triangle, Vector3 v4) : base(edit, Triangle)
         {
             _v4 = v4;
         }

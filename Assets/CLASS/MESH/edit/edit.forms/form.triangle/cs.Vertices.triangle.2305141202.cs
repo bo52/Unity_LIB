@@ -28,7 +28,7 @@ namespace LIB.cs2305141202
         {
             this._edit = edit;
         }
-        public Class(cs2305141215.IClass edit, cs2306301359.Class ВершиныТреугольника)
+        public Class(cs2305141215.IClass edit, cs2306301359.Struct ВершиныТреугольника)
         {
             this._edit = edit;
             this.v1 = ВершиныТреугольника.v1;

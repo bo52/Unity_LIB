@@ -39,16 +39,16 @@ namespace LIB.cs2305141215
             (this as cs2305141222.IClass).Очистить();
         }
         void ФункцияПостройки();
-        cs2307031203_ПараметрыПостройки.Class ПараметрыПостройки { get; }
+        cs2307031203_ПараметрыПостройки.Struct ПараметрыПостройки { get; }
     }
     /// <summary>
     /// 
     /// </summary>
     public abstract class Class : cs2305141222.Class, IClass
     {
-        private cs2307031203_ПараметрыПостройки.Class _param; public cs2307031203_ПараметрыПостройки.Class ПараметрыПостройки => _param;
+        private cs2307031203_ПараметрыПостройки.Struct _param; public cs2307031203_ПараметрыПостройки.Struct ПараметрыПостройки => _param;
         public void ФункцияПостройки() => _param.ФункцияПостройки(this);
-        public Class(cs2307031203_ПараметрыПостройки.Class param)
+        public Class(cs2307031203_ПараметрыПостройки.Struct param)
         {
             _param = param;
         }

@@ -20,7 +20,7 @@ namespace LIB.cs2307031649
         static new public string INFO = "INFO";
         private GameObject _child; public GameObject Child => _child;
         private Vector3 _ch_v = Vector3.zero; public Vector3 КоординатаЧанка { get => _ch_v; set => _ch_v = value; }
-        public Class(GameObject go, cs2307031203_ПараметрыПостройки.Class param_build) : base(go, param_build)
+        public Class(GameObject go, cs2307031203_ПараметрыПостройки.Struct param_build) : base(go, param_build)
         {
             st2305221205.Class.fun230522120502_УдалениеДочернихОбъектов(go.transform);
         }
